@@ -6,25 +6,25 @@ export const AboutNarrativeSection: React.FC = () => {
       <div className="about-narrative-container">
         <ul className="about-points-list">
           <li className="about-point-item">
-            <span className="about-point-dot" aria-hidden="true"></span>
+            <span className="about-point-dot" aria-hidden="true" />
             <div className="about-point-text">
               <strong>18 years in Bhavnagar:</strong> parents, brother, grandma, CSMCRI, Dakshinamurti, Takhteshwar Tekri, school days, endless memories, Pappubhai ni panipuri, and the first little dreams of what life could become…
             </div>
           </li>
           <li className="about-point-item">
-            <span className="about-point-dot" aria-hidden="true"></span>
+            <span className="about-point-dot" aria-hidden="true" />
             <div className="about-point-text">
               <strong>10 years in Gandhinagar:</strong> new friends, college life, gardens, long conversations, discovering independence, teaching, research, and slowly finding my place in academia.
             </div>
           </li>
           <li className="about-point-item">
-            <span className="about-point-dot" aria-hidden="true"></span>
+            <span className="about-point-dot" aria-hidden="true" />
             <div className="about-point-text">
               <strong>3 years in Nancy:</strong> French life, a three-century-old French home, CNRS, new friends, long walks through streets that had witnessed both World Wars, the countryside, hiking in the Vosges Mountains, and perhaps the three years that shaped the person I am more than any other place.
             </div>
           </li>
           <li className="about-point-item">
-            <span className="about-point-dot" aria-hidden="true"></span>
+            <span className="about-point-dot" aria-hidden="true" />
             <div className="about-point-text">
               <strong>Now, back in Gandhinagar…</strong>
             </div>

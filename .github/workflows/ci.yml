@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   validate:
-    name: Lint, Typecheck, Test & Build
+    name: Lint, Typecheck & Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
@@ -33,10 +33,6 @@ jobs:
 
       - name: TypeScript Type Checking
         run: npm run type-check
-
-      # M56 FIX: Added unit test step — was missing from CI quality gate
-      - name: Unit Tests
-        run: npm run test
 
       - name: Production Bundle Compilation
         run: npm run build

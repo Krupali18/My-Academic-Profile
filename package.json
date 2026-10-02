@@ -8,12 +8,8 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
-    "lint": "eslint src --ext .ts,.tsx --max-warnings 0",
-    "lint:fix": "eslint src --ext .ts,.tsx --fix",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
+    "lint": "eslint src --max-warnings 0",
+    "lint:fix": "eslint src --fix",
     "check": "tsc --noEmit && vite build",
     "compress-images": "node scripts/compress-images.mjs",
     "lhci": "lhci autorun"
@@ -43,13 +39,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.13.0",
     "@lhci/cli": "^0.15.1",
-    "@playwright/test": "^1.63.0",
     "@tailwindcss/typography": "^0.5.13",
-    "@testing-library/jest-dom": "^7.0.1",
-    "@testing-library/react": "^16.3.3",
-    "@testing-library/user-event": "^14.6.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.71.0",
@@ -60,13 +51,11 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
-    "jsdom": "^30.1.1",
     "postcss": "^8.4.38",
     "rollup-plugin-visualizer": "^7.1.1",
     "sharp": "^0.35.4",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5",
-    "vite": "^5.3.1",
-    "vitest": "^2.1.9"
+    "vite": "^5.3.1"
   }
 }

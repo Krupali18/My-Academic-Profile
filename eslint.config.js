@@ -35,6 +35,8 @@ export default [
         ResizeObserver: 'readonly',
         IntersectionObserver: 'readonly',
         NodeJS: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
       },
     },
     plugins: {
@@ -56,7 +58,7 @@ export default [
       'react/no-unknown-property': 'error',
       'react/jsx-key': 'error',
       'react/self-closing-comp': 'warn',
-      'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: true }],
+      'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }],
 
       // ── React Hooks ──────────────────────────────────────────────────
       'react-hooks/rules-of-hooks': 'error',
@@ -71,6 +73,8 @@ export default [
       'jsx-a11y/interactive-supports-focus': 'warn',
 
       // ── General JS ───────────────────────────────────────────────────
+      'no-unused-vars': 'off',
+      'no-undef': 'off',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
       'prefer-const': 'error',

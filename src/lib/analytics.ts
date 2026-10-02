@@ -2,7 +2,8 @@
  * Real User Monitoring (RUM) & Core Web Vitals Tracking (Phase 5)
  * Captures and transmits CLS, INP, LCP, FCP, TTFB
  */
-import { onCLS, onINP, onLCP, onFCP, onTTFB, Metric } from 'web-vitals';
+import type { Metric } from 'web-vitals';
+import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'web-vitals';
 
 declare global {
   interface Window {
