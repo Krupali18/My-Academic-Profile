@@ -18,6 +18,7 @@ dist
 dist-ssr
 *.local
 *.timestamp-*.mjs
+.vite
 
 # Environment variables & Secrets (CRITICAL MD File 12)
 .env
