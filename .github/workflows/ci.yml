@@ -1,0 +1,45 @@
+name: CI / Production Quality Gate
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Lint, Typecheck, Test & Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Clean Install Dependencies
+        run: npm ci
+
+      # M56 FIX: Added ESLint step — was missing from CI quality gate
+      - name: ESLint Static Analysis
+        run: npm run lint
+
+      - name: TypeScript Type Checking
+        run: npm run type-check
+
+      # M56 FIX: Added unit test step — was missing from CI quality gate
+      - name: Unit Tests
+        run: npm run test
+
+      - name: Production Bundle Compilation
+        run: npm run build
+
+      - name: Dependency Security Audit
+        run: npm audit --audit-level=high
