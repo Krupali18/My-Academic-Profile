@@ -16,6 +16,7 @@ export const HomePage: React.FC = () => {
       <Helmet>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
+        <meta name="author" content="Dr. Krupali Donda" />
         <link rel="canonical" href={seo.canonical} />
         {/* H19 FIX: og:type="profile" for personal academic profile, og:site_name added */}
         <meta property="og:type" content="profile" />
@@ -25,12 +26,15 @@ export const HomePage: React.FC = () => {
         <meta property="og:image" content={seo.ogImage} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        {/* SEO-05 FIX: og:image:alt for accessibility + social validators */}
+        {seo.ogImageAlt && <meta property="og:image:alt" content={seo.ogImageAlt} />}
         <meta property="og:url" content={seo.ogUrl} />
+        {/* SEO-06 FIX: Removed twitter:site — unverified @krupalidonda handle */}
         <meta name="twitter:card" content={seo.twitterCard} />
-        <meta name="twitter:site" content="@krupalidonda" />
         <meta name="twitter:title" content={seo.twitterTitle} />
         <meta name="twitter:description" content={seo.twitterDescription} />
         <meta name="twitter:image" content={seo.twitterImage} />
+        {seo.ogImageAlt && <meta name="twitter:image:alt" content={seo.ogImageAlt} />}
         {seo.jsonLd && (
           <script
             type="application/ld+json"
@@ -39,12 +43,10 @@ export const HomePage: React.FC = () => {
         )}
       </Helmet>
 
-      {/* M50 FIX: No location.key prop — removing it prevents AcademicIntro from remounting on every navigation */}
       <AcademicIntro />
 
       <main className="main-content" id="main-content">
         <Header />
-        {/* H14 FIX: Wrap sections in SectionErrorBoundary so crashes don't blank the entire page */}
         <SectionErrorBoundary sectionName="HeroBanner">
           <HeroBanner />
         </SectionErrorBoundary>

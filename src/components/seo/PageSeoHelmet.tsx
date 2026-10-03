@@ -14,12 +14,15 @@ interface PageSeoHelmetProps {
  * causes a silent rendering failure that prevents the entire page from mounting.
  */
 export const PageSeoHelmet: React.FC<PageSeoHelmetProps> = ({ seo }) => {
+  if (!seo) return null;
   const jsonLdItems = Array.isArray(seo.jsonLd) ? seo.jsonLd : seo.jsonLd ? [seo.jsonLd] : [];
 
   return (
     <Helmet>
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
+      {/* SEO-09 FIX: author meta tag for academic search engine attribution */}
+      <meta name="author" content="Dr. Krupali Donda" />
       {seo.robots && <meta name="robots" content={seo.robots} />}
       <link rel="canonical" href={seo.canonical} />
 
@@ -31,14 +34,17 @@ export const PageSeoHelmet: React.FC<PageSeoHelmetProps> = ({ seo }) => {
       <meta property="og:image" content={seo.ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
+      {/* SEO-05 FIX: og:image:alt required for accessibility and social platform validators */}
+      {seo.ogImageAlt && <meta property="og:image:alt" content={seo.ogImageAlt} />}
       <meta property="og:url" content={seo.ogUrl} />
 
       {/* Twitter / X Card */}
+      {/* SEO-06 FIX: Removed twitter:site — unverified @krupalidonda handle; absent is better than wrong */}
       <meta name="twitter:card" content={seo.twitterCard} />
-      <meta name="twitter:site" content="@krupalidonda" />
       <meta name="twitter:title" content={seo.twitterTitle} />
       <meta name="twitter:description" content={seo.twitterDescription} />
       <meta name="twitter:image" content={seo.twitterImage} />
+      {seo.ogImageAlt && <meta name="twitter:image:alt" content={seo.ogImageAlt} />}
 
       {/* JSON-LD: must use dangerouslySetInnerHTML — JSX children not supported in Helmet scripts */}
       {jsonLdItems.map((item, i) => (

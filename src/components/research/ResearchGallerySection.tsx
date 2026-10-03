@@ -9,7 +9,7 @@ export const ResearchGallerySection: React.FC = () => {
         <article className="research-item reveal active stagger-item">
           <div className="research-media image-media">
             <img
-              src="/assets/image-to-response-learningdiagram.png"
+              src="/assets/image-to-response-learningdiagram.webp"
               alt="Diagram showing image-to-response learning pipeline for accelerating meta-absorber design via transformers"
               loading="lazy"
               decoding="async"
@@ -34,7 +34,7 @@ export const ResearchGallerySection: React.FC = () => {
         <article className="research-item reveal active stagger-item">
           <div className="research-media image-media">
             <img
-              src="/assets/extreme-low-frequency.jpg"
+              src="/assets/extreme-low-frequency.webp"
               alt="Schematic of extreme low-frequency ultrathin acoustic absorbing metasurface"
               loading="lazy"
               decoding="async"
@@ -59,7 +59,7 @@ export const ResearchGallerySection: React.FC = () => {
         <article className="research-item reveal active stagger-item">
           <div className="research-media image-media">
             <img
-              src="/assets/deep-learning-approach.png"
+              src="/assets/deep-learning-approach.webp"
               alt="Deep learning approach architecture for designing acoustic absorbing metasurfaces with high degrees of freedom"
               loading="lazy"
               decoding="async"

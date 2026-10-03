@@ -67,7 +67,7 @@ export const HonorsFeatureGrid: React.FC = () => {
         <div className="honors-media">
           <div className="honors-image-frame contain-fit">
             <img
-              src="/assets/ASA%20ASJ.png"
+              src="/assets/ASA%20ASJ.webp"
               alt="Acoustical Society of America — JASA publication abstract for Dr. Krupali Donda"
               decoding="async"
               loading="lazy"
@@ -118,7 +118,7 @@ export const HonorsFeatureGrid: React.FC = () => {
         <div className="honors-media">
           <div className="honors-image-frame">
             <img
-              src="/assets/iit%20delhi.jpg"
+              src="/assets/iit%20delhi.webp"
               alt="Dr. Krupali Donda at the Indian Institute of Technology Delhi campus"
               decoding="async"
               loading="lazy"

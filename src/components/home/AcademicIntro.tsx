@@ -41,16 +41,21 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
   const finishIntroRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
-    // Respect OS-level reduced motion preference (WCAG 2.3.3 / prefers-reduced-motion).
-    // Users with vestibular disorders who have enabled this setting bypass the full animation.
+    // Check if prefers-reduced-motion is active
     const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+
     if (prefersReducedMotion) {
-      if (preloaderRef.current) preloaderRef.current.style.display = 'none';
+      if (preloaderRef.current) {
+        preloaderRef.current.style.display = 'none';
+        preloaderRef.current.style.pointerEvents = 'none';
+      }
       const brand = document.getElementById('site-nav-brand');
       if (brand) {
         brand.style.removeProperty('opacity');
         brand.style.removeProperty('pointer-events');
+        brand.style.removeProperty('visibility');
       }
+      document.body.style.removeProperty('overflow');
       onComplete?.();
       return;
     }
@@ -97,8 +102,8 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       const padX = isNarrow
         ? Math.min(16, window.innerWidth * 0.03)
         : isMobile
-        ? Math.min(28, window.innerWidth * 0.04)
-        : Math.max(65, window.innerWidth * 0.05);
+          ? Math.min(28, window.innerWidth * 0.04)
+          : Math.max(65, window.innerWidth * 0.05);
       const padY = isMobile ? 22 : 40;
       return {
         left: rect.left - padX,
@@ -540,8 +545,34 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
 
       if (!nameEl) return;
 
-      gsap.set([curtain, grid, canvasEl], { opacity: 1 });
-      if (techFrame) gsap.set(techFrame, { opacity: 1, y: 0 });
+      document.body.style.overflow = 'hidden';
+
+      gsap.killTweensOf([
+        curtain,
+        grid,
+        canvasEl,
+        techFrame,
+        nameEl,
+        eyebrow,
+        hairline,
+        roles,
+        skipBtn,
+        preloader,
+      ]);
+
+      if (curtain) gsap.set(curtain, { clearProps: 'all', opacity: 1, scale: 1 });
+      if (grid) gsap.set(grid, { clearProps: 'all', opacity: 1 });
+      if (canvasEl) gsap.set(canvasEl, { clearProps: 'all', opacity: 1 });
+      if (techFrame) gsap.set(techFrame, { clearProps: 'all', opacity: 1, scale: 1, y: 0 });
+      if (eyebrow) gsap.set(eyebrow, { clearProps: 'all', opacity: 0, y: 12 });
+      if (hairline) gsap.set(hairline, { clearProps: 'all', opacity: 0, scaleX: 0.5 });
+      if (roles) {
+        gsap.set(roles, { clearProps: 'all', opacity: 0, y: 12 });
+        const pills = roles.querySelectorAll('.role-pill, .intro-sep');
+        if (pills.length) gsap.set(pills, { clearProps: 'all', opacity: 1, y: 0 });
+      }
+      if (skipBtn) gsap.set(skipBtn, { clearProps: 'all', opacity: 1 });
+
       gsap.set(nameEl, {
         clearProps: 'all',
         transformOrigin: 'top left',
@@ -551,9 +582,6 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         opacity: 0,
         color: '#000000',
       });
-      gsap.set([eyebrow, roles], { clearProps: 'all', opacity: 0, y: 12 });
-      gsap.set(hairline, { clearProps: 'all', opacity: 0, scaleX: 0.5 });
-      gsap.set(skipBtn, { clearProps: 'all', opacity: 1 });
 
       // Precise Real-Time FLIP Morph Coordinates Calculation (matching html site)
       function getTargetCoordinates() {
@@ -582,53 +610,51 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       tl.fromTo(
         nameEl,
         { scale: 0.95, opacity: 0, y: 12 },
-        { scale: 1.0, opacity: 1, y: 0, duration: 0.52, ease: 'power2.out' }
+        { scale: 1.0, opacity: 1, y: 0, duration: 0.40, ease: 'power2.out' }
       )
         .fromTo(
           [eyebrow, roles],
           { y: 12, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.44, stagger: 0.09, ease: 'power2.out' },
-          '-=0.32'
+          { y: 0, opacity: 1, duration: 0.35, stagger: 0.06, ease: 'power2.out' },
+          '-=0.25'
         )
         .fromTo(
           hairline,
           { scaleX: 0.5, opacity: 0 },
-          { scaleX: 1, opacity: 1, duration: 0.38, ease: 'power2.out' },
-          '-=0.32'
+          { scaleX: 1, opacity: 1, duration: 0.30, ease: 'power2.out' },
+          '-=0.25'
         );
 
-      // Phase B: Holding for Reading & Academic Authority (1.20s: confident, poised, calm)
-      tl.to({}, { duration: 1.20 });
+      // Phase B: Holding for Reading & Academic Authority (0.70s: confident, poised, fast)
+      tl.to({}, { duration: 0.70 });
 
       // Phase C: The "Going and All" Sequence — Aerodynamic Flight & Velvet Site Awakening
       tl.add('going');
 
       // 1. Staged peripheral clearance:
-      tl.to(hairline, { scaleX: 0, opacity: 0, duration: 0.28, ease: 'power2.inOut' }, 'going');
-      tl.to(eyebrow, { opacity: 0, y: -8, duration: 0.26, ease: 'power2.out' }, 'going+=0.04');
+      tl.to(hairline, { scaleX: 0, opacity: 0, duration: 0.22, ease: 'power2.inOut' }, 'going');
+      tl.to(eyebrow, { opacity: 0, y: -8, duration: 0.20, ease: 'power2.out' }, 'going+=0.04');
       const rolePills = roles ? roles.querySelectorAll('.role-pill, .intro-sep') : [roles];
-      tl.to(rolePills, { opacity: 0, y: 6, duration: 0.26, stagger: 0.03, ease: 'power2.out' }, 'going+=0.06');
-      tl.to(skipBtn, { opacity: 0, duration: 0.22, ease: 'power2.out' }, 'going');
+      tl.to(rolePills, { opacity: 0, y: 6, duration: 0.20, stagger: 0.02, ease: 'power2.out' }, 'going+=0.05');
+      tl.to(skipBtn, { opacity: 0, duration: 0.18, ease: 'power2.out' }, 'going');
       if (techFrame) {
-        tl.to(techFrame, { opacity: 0, scale: 0.98, duration: 0.26, ease: 'power2.out' }, 'going');
+        tl.to(techFrame, { opacity: 0, scale: 0.98, duration: 0.20, ease: 'power2.out' }, 'going');
       }
 
       // 2. Micro-buoyancy anticipation lift (unmooring from gravity)
-      tl.to(nameEl, { y: -3, duration: 0.16, ease: 'sine.out' }, 'going+=0.12');
+      tl.to(nameEl, { y: -3, duration: 0.14, ease: 'sine.out' }, 'going+=0.10');
 
-      // 3. The Grand Flight: Continuous Bezier Aerodynamic Arc (1.28s duration)
-      // Moves nameEl with dynamic millimeter precision straight into the navBrand slot
-      // NO FADING OUT DURING FLIGHT - stays 100% visible and lands directly into navBrand!
+      // 3. The Grand Flight: Continuous Bezier Aerodynamic Arc (0.92s duration)
       tl.to(
         nameEl,
         {
           x: () => getTargetCoordinates().x,
           y: () => getTargetCoordinates().y,
           scale: () => getTargetCoordinates().scale,
-          duration: 1.28,
+          duration: 0.92,
           ease: 'power2.inOut',
         },
-        'going+=0.28'
+        'going+=0.22'
       );
 
       // 4. Canvas warp & liquid node dispersion along departure stream
@@ -702,7 +728,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         } else {
           finishIntro();
         }
-      }, 'going+=1.56');
+      }, 'going+=1.18');
     }
 
     finishIntroRef.current = finishIntro;
@@ -741,12 +767,19 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       if (e.key === 'Escape' || e.code === 'Escape') finishIntro();
     };
 
-    // C6 FIX: Resume RAF when tab becomes visible again (was paused to save CPU)
+    // Auto-finish immediately if tab is backgrounded to prevent frozen black screen; resume RAF if visible
     const onVisibilityChange = () => {
-      if (!document.hidden && !isCompleted) {
+      if (document.hidden) {
+        finishIntro();
+      } else if (!isCompleted) {
         if (animFrameId !== null) cancelAnimationFrame(animFrameId);
         animFrameId = requestAnimationFrame(renderCanvasScene);
       }
+    };
+
+    const handleReplayIntro = () => {
+      window.scrollTo(0, 0);
+      playIntro();
     };
 
     window.addEventListener('resize', resizeCanvas, { passive: true });
@@ -756,13 +789,20 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
     window.addEventListener('touchmove', onTouchMove, { passive: true });
     window.addEventListener('touchend', onTouchEnd, { passive: true });
     window.addEventListener('keydown', onKeyDown);
+    window.addEventListener('kd_replay_intro', handleReplayIntro);
     document.addEventListener('visibilitychange', onVisibilityChange);
 
     // Auto-play intro immediately
     const startTimer = setTimeout(playIntro, 30);
 
+    // Failsafe timer: guaranteed dismissal after 2.8s even if RAF, GSAP or tab backgrounding stalls
+    const safetyTimer = setTimeout(() => {
+      if (!isCompleted) finishIntro();
+    }, 2800);
+
     return () => {
       clearTimeout(startTimer);
+      clearTimeout(safetyTimer);
       finishIntro();
       window.removeEventListener('resize', resizeCanvas);
       window.removeEventListener('mousemove', onMouseMove);
@@ -771,6 +811,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       window.removeEventListener('touchmove', onTouchMove);
       window.removeEventListener('touchend', onTouchEnd);
       window.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('kd_replay_intro', handleReplayIntro);
       document.removeEventListener('visibilitychange', onVisibilityChange);
     };
   }, [onComplete]);
@@ -779,6 +820,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
     <div
       id="site-preloader"
       ref={preloaderRef}
+      onClick={() => finishIntroRef.current?.()}
       role="dialog"
       aria-modal="true"
       aria-label="Dr. Krupali Donda Intro"
