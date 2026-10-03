@@ -14,13 +14,14 @@ export const HeroBanner: React.FC = () => {
           <picture>
             <source srcSet="/assets/genratedd-2.webp" type="image/webp" />
             <img
-              src="/assets/genratedd-2.png"
+              src="/assets/genratedd-2.webp"
               alt="Dr. Krupali Donda — Assistant Professor at Adani University"
               decoding="async"
               loading="eager"
               fetchPriority="high"
               width={280}
               height={380}
+              sizes="(max-width: 768px) 200px, 280px"
             />
           </picture>
         </div>

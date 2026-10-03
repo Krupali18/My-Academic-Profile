@@ -1,23 +1,34 @@
-import { useEffect, type FC } from 'react';
+import { useLayoutEffect, type FC } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /**
  * ScrollToTop - Router middleware component
- * Automatically scrolls to top (0, 0) on route change in SPA mode,
+ * Automatically scrolls to top (0, 0) before paint on route change in SPA mode,
  * or smoothly scrolls to an anchor element if a hash is present.
+ * Bulletproof error handling ensures this never throws into the React tree.
  */
 export const ScrollToTop: FC = () => {
   const { pathname, hash } = useLocation();
 
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        return;
+  useLayoutEffect(() => {
+    try {
+      if (hash) {
+        const id = hash.replace(/^#/, '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
+      }
+      window.scrollTo(0, 0);
+    } catch {
+      try {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      } catch {
+        // Safe no-op
       }
     }
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [pathname, hash]);
 
   return null;

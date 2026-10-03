@@ -2,89 +2,45 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /**
- * Global Scroll Reveal Hook
- * High-FPS Cinematic IntersectionObserver for .reveal and .stagger-item elements
+ * Global Scroll Reveal Hook - Zero-Latency Direct Presentation
+ * Ensures all elements are instantly active and visible upon route changes
+ * with bulletproof error isolation.
  */
 export function useGlobalScrollReveal(): void {
   const location = useLocation();
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-
-    // Small delay to let React render the new page's DOM
-    const timer = setTimeout(() => {
-      const revealElements = Array.from(
-        document.querySelectorAll<HTMLElement>('.reveal:not(.active), .stagger-item:not(.active)')
-      );
-
-      if (prefersReducedMotion) {
-        revealElements.forEach((el) => el.classList.add('active'));
-        return;
-      }
-
-      if (!revealElements.length) return;
-
-      const windowHeight = window.innerHeight;
-      const initialElements: HTMLElement[] = [];
-      const scrollElements: HTMLElement[] = [];
-
-      revealElements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < windowHeight * 0.88) {
-          initialElements.push(el);
-        } else {
-          scrollElements.push(el);
-        }
-      });
-
-      // Rapidly cascade in elements already in viewport on mount/page change
-      initialElements.forEach((el, idx) => {
-        el.style.transitionDelay = `${Math.min(idx * 0.04, 0.28)}s`;
-        requestAnimationFrame(() => {
+    const activateAll = () => {
+      try {
+        const elements = document.querySelectorAll<HTMLElement>(
+          '.reveal:not(.active), .stagger-item:not(.active)'
+        );
+        elements.forEach((el) => {
           el.classList.add('active');
         });
-      });
+      } catch {
+        // Safe no-op
+      }
+    };
 
-      if (!scrollElements.length) return;
+    // 1. Activate immediately on mount
+    activateAll();
 
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target as HTMLElement;
+    // 2. Next animation frame to catch any immediate sub-render
+    let frameId: number | null = null;
+    try {
+      frameId = requestAnimationFrame(activateAll);
+    } catch {
+      // Safe no-op
+    }
 
-            // Dynamic fluid stagger delay for stagger-item grid cards
-            if (el.classList.contains('stagger-item')) {
-              const parent = el.parentElement;
-              if (parent) {
-                const siblings = Array.from(parent.querySelectorAll('.stagger-item:not(.active)'));
-                const idx = siblings.indexOf(el);
-                if (idx !== -1) {
-                  if (parent.classList.contains('gs-members-grid')) {
-                    const width = window.innerWidth;
-                    const cols = width <= 576 ? 1 : width <= 992 ? 2 : 4;
-                    const col = idx % cols;
-                    el.style.transitionDelay = `${col * 0.08}s`;
-                  } else {
-                    el.style.transitionDelay = `${Math.min(idx * 0.06, 0.36)}s`;
-                  }
-                }
-              }
-            }
+    // 3. One lightweight timer check for dynamically rendered components
+    const timer = setTimeout(activateAll, 80);
 
-            el.classList.add('active');
-            observer.unobserve(el);
-          });
-        },
-        { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
-      );
-
-      scrollElements.forEach((el) => revealObserver.observe(el));
-
-      return () => revealObserver.disconnect();
-    }, 60);
-
-    return () => clearTimeout(timer);
+    return () => {
+      if (frameId !== null) cancelAnimationFrame(frameId);
+      clearTimeout(timer);
+    };
   }, [location.pathname]);
 }
 
@@ -92,3 +48,5 @@ export function GlobalScrollReveal(): null {
   useGlobalScrollReveal();
   return null;
 }
+
+export default useGlobalScrollReveal;

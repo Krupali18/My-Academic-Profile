@@ -93,12 +93,15 @@ export const NewsOutreachSection: React.FC = () => {
         >
           <div className="honors-media">
             <div className="honors-image-frame">
-              <img
-                src="/assets/research%20meta.jpg"
-                alt="Dr. Krupali Donda presenting research at META 2026, Trinity College Dublin, Ireland"
-                decoding="async"
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet="/assets/research-meta-opt.webp" type="image/webp" />
+                <img
+                  src="/assets/research-meta-opt.webp"
+                  alt="Dr. Krupali Donda presenting research at META 2026, Trinity College Dublin, Ireland"
+                  decoding="async"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <p className="honors-caption">
               <svg viewBox="0 0 20 20" width="13" height="13" fill="currentColor" aria-hidden="true">
@@ -194,7 +197,7 @@ export const NewsOutreachSection: React.FC = () => {
           <div className="honors-media">
             <div className="honors-image-frame">
               <img
-                src="/assets/svnit-expert-talk.jpg"
+                src="/assets/svnit-expert-talk.webp"
                 alt="Dr. Krupali Donda delivering an invited expert talk at Capestone Connect 6.0, RIAC, SVNIT Surat"
                 decoding="async"
                 loading="lazy"

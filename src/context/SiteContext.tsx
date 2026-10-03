@@ -53,12 +53,14 @@ export const SiteProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const openModal = (modalId: string) => {
     setActiveModal(modalId);
-    document.body.style.overflow = 'hidden';
+    // RELIABILITY-03 FIX: Use class instead of inline style to avoid conflicts
+    // with AcademicIntro's own body overflow control
+    document.body.classList.add('modal-open');
   };
 
   const closeModal = () => {
     setActiveModal(null);
-    document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
   };
 
   return (

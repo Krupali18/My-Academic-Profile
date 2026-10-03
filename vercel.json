@@ -1,24 +1,20 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true },
-    { "source": "/research.html", "destination": "/research", "permanent": true },
-    { "source": "/teaching.html", "destination": "/teaching", "permanent": true },
-    { "source": "/group.html", "destination": "/group", "permanent": true },
-    { "source": "/honors.html", "destination": "/honors", "permanent": true },
-    { "source": "/publications.html", "destination": "/publications", "permanent": true },
-    { "source": "/talks.html", "destination": "/talks", "permanent": true },
-    { "source": "/service.html", "destination": "/service", "permanent": true },
-    { "source": "/news-outreach.html", "destination": "/news-outreach", "permanent": true },
-    { "source": "/gallery.html", "destination": "/gallery", "permanent": true },
-    { "source": "/contact.html", "destination": "/contact", "permanent": true }
-  ],
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [
@@ -32,9 +28,18 @@
       ]
     },
     {
-      "source": "/(.*).html",
+      "source": "/(.*)\\.html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</assets/genratedd-2.webp>; rel=preload; as=image; type=image/webp"
+        }
       ]
     },
     {

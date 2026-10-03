@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { useStickyHeader } from '@/hooks/useStickyHeader';
 import { useSite } from '@/context/SiteContext';
 
@@ -70,19 +69,7 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
     .join(' ');
 
   return (
-    <motion.header
-      id="top"
-      className={navClass}
-      role="banner"
-      initial={false}
-      animate={{
-        y: 0,
-      }}
-      transition={{
-        duration: 0.35,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-    >
+    <header id="top" className={navClass} role="banner">
       {/* M47 FIX: Skip link must be visible on focus per WCAG 2.4.1 — was always sr-only (hidden even on focus) */}
       <a
         href="#main-content"
@@ -97,6 +84,15 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
             className="ad_brand_logo"
             id="site-nav-brand"
             aria-label="Dr. Krupali Donda — Home"
+            onClick={() => {
+              if (location.pathname === '/') {
+                try {
+                  window.dispatchEvent(new CustomEvent('kd_replay_intro'));
+                } catch {
+                  // Safe no-op
+                }
+              }
+            }}
           >
             Dr. Krupali Donda
           </Link>
@@ -130,22 +126,21 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
                     className={({ isActive }) =>
                       `ad_nav_link ${isActive ? 'active' : ''}`
                     }
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      if (item.to === '/' && location.pathname === '/') {
+                        try {
+                          window.dispatchEvent(new CustomEvent('kd_replay_intro'));
+                        } catch {
+                          // Safe no-op
+                        }
+                      }
+                    }}
                   >
                     {({ isActive }) => (
                       <>
                         <span>{item.label}</span>
-                        {isActive && (
-                          <motion.span
-                            layoutId="activeNavPill"
-                            className="nav-active-pill"
-                            transition={{
-                              type: 'spring',
-                              stiffness: 380,
-                              damping: 30,
-                            }}
-                          />
-                        )}
+                        {isActive && <span className="nav-active-pill" />}
                       </>
                     )}
                   </NavLink>
@@ -164,19 +159,13 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
           </div>
 
           <div className="nav-right">
-            <motion.div
-              whileHover={{ scale: 1.03, y: -1 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 25 }}
-            >
-              <Link to="/contact" className="ad_nav_link contact-btn">
-                Contact
-              </Link>
-            </motion.div>
+            <Link to="/contact" className="ad_nav_link contact-btn">
+              Contact
+            </Link>
           </div>
         </div>
       </nav>
-    </motion.header>
+    </header>
   );
 };
 

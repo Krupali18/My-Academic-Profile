@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Dr. Krupali Donda | Metamaterials & AI Research</title>
+    <title>Dr. Krupali Donda - Metamaterials and AI Research</title>
     <meta
       name="description"
       content="Dr. Krupali Donda is an Assistant Professor at Adani University, Ahmedabad. Expert in Metasurfaces, Nanophotonics, Acoustic Metamaterials, and Deep Learning for inverse material design."
@@ -14,6 +14,7 @@
     <meta name="theme-color" content="#002E5D" />
 
     <link rel="canonical" href="https://krupalidonda.com/" />
+    <link rel="manifest" href="/manifest.json" />
 
     <!-- Favicon -->
     <link
@@ -21,87 +22,77 @@
       type="image/svg+xml"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c223f'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white'%3EKD%3C/text%3E%3C/svg%3E"
     />
-    <link
-      rel="apple-touch-icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c223f'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white'%3EKD%3C/text%3E%3C/svg%3E"
-    />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
 
-    <!-- Preload hero image (WebP, 61KB — 97% smaller than original PNG) -->
-    <link rel="preload" href="/assets/genratedd-2.webp" as="image" type="image/webp" fetchpriority="high" />
+    <!-- Preconnect to external services for faster first requests -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+    <link rel="preconnect" href="https://formspree.io" crossorigin />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-    <!-- Open Graph Defaults -->
-    <meta property="og:type" content="website" />
+    <!-- Open Graph Defaults (homepage) -->
+    <meta property="og:type" content="profile" />
     <meta property="og:site_name" content="Dr. Krupali Donda" />
-    <meta property="og:title" content="Dr. Krupali Donda — Metamaterials &amp; AI Research" />
+    <meta property="og:title" content="Dr. Krupali Donda - Metamaterials and AI Research" />
     <meta
       property="og:description"
       content="Assistant Professor at Adani University. Researching Metamaterials, Nanophotonics, Acoustic Metamaterials, and AI Deep Learning."
     />
-    <meta property="og:image" content="https://krupalidonda.com/assets/genratedd-2.png" />
+    <meta property="og:image" content="https://krupalidonda.com/assets/genratedd-2.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dr. Krupali Donda - Assistant Professor" />
     <meta property="og:url" content="https://krupalidonda.com/" />
 
-    <!-- Twitter Card Defaults -->
+    <!-- Twitter Card Defaults (homepage) -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Dr. Krupali Donda — Metamaterials &amp; AI Research" />
+    <meta name="twitter:title" content="Dr. Krupali Donda - Metamaterials and AI Research" />
     <meta
       name="twitter:description"
       content="Assistant Professor at Adani University. Researching Metamaterials, Nanophotonics, Acoustic Metamaterials, and AI Deep Learning."
     />
-    <meta name="twitter:image" content="https://krupalidonda.com/assets/genratedd-2.png" />
+    <meta name="twitter:image" content="https://krupalidonda.com/assets/genratedd-2.webp" />
+    <meta name="twitter:image:alt" content="Dr. Krupali Donda - Assistant Professor" />
+
+    <!-- Minimal inline styles for no-JS / slow-load placeholder — prevents FOUC -->
+    <style>
+      #site-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background: #ffffff;
+        color: #002E5D;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+      }
+    </style>
+
+    <!-- Google Analytics 4 — loads async, non-blocking -->
+    <script>
+      // Read GA ID from meta tag or fall back gracefully if not configured
+      (function() {
+        var gaId = 'G-XXXXXXXXXX'; // Replace with your real GA4 Measurement ID
+        if (!gaId || gaId === 'G-XXXXXXXXXX') return; // Skip if not configured
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', gaId);
+      })();
+    </script>
   </head>
   <body>
+    <!-- BUG-02/04 FIX: Removed raw HTML skeleton — it rendered without CSS causing FOUC.
+         React hydrates this div within milliseconds; the inline #site-loading spinner
+         shows a clean white screen during the brief JS load on slow connections. -->
     <div id="root">
-      <main class="main-content" id="main-content">
-        <header id="top" class="o_header_standard bg-transparent" role="banner">
-          <a href="#main-content" class="sr-only">Skip to main content</a>
-          <nav class="ad_navbar" aria-label="Primary navigation">
-            <div class="container-fluid">
-              <a href="/" class="ad_brand_logo" id="site-nav-brand">Dr. Krupali Donda</a>
-              <div class="nav-links" id="nav-links">
-                <ul class="navbar-nav">
-                  <li><a href="/" class="ad_nav_link active">Home</a></li>
-                  <li><a href="/about" class="ad_nav_link">About</a></li>
-                  <li><a href="/research" class="ad_nav_link">Research</a></li>
-                  <li><a href="/teaching" class="ad_nav_link">Teaching</a></li>
-                  <li><a href="/group" class="ad_nav_link">Group</a></li>
-                  <li><a href="/honors" class="ad_nav_link">Honours</a></li>
-                  <li><a href="/publications" class="ad_nav_link">Publications</a></li>
-                  <li><a href="/news-outreach" class="ad_nav_link">News &amp; Outreach</a></li>
-                  <li><a href="/gallery" class="ad_nav_link">Gallery</a></li>
-                </ul>
-              </div>
-              <div class="nav-right">
-                <a href="/contact" class="ad_nav_link contact-btn">Contact</a>
-              </div>
-            </div>
-          </nav>
-        </header>
-        <section id="index" class="hero-banner" aria-label="Hero introduction">
-          <div class="hero-banner-content">
-            <div class="hero-banner-image reveal active">
-              <picture>
-                <source srcset="/assets/genratedd-2.webp" type="image/webp" />
-                <img
-                  src="/assets/genratedd-2.png"
-                  alt="Dr. Krupali Donda — Assistant Professor at Adani University"
-                  decoding="async"
-                  loading="eager"
-                  fetchpriority="high"
-                  width="280"
-                  height="380"
-                />
-              </picture>
-            </div>
-            <div class="hero-banner-info reveal active reveal-delay-1">
-              <h1 class="hero-title">Krupali Donda<span></span></h1>
-              <div class="hero-details">
-                <p>Researcher | STEM Mentor | AU | IIT Delhi | CNRS, France | IIT Gandhinagar</p>
-                <p class="glimpse-link" style="margin-top: 15px;">Area of Research: Wave Propagation, Metamaterials, Intelligent Metasurface Design, Machine Learning</p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+      <div id="site-loading">Loading&hellip;</div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

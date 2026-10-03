@@ -227,8 +227,8 @@ export const GalleryShowcaseSection: React.FC = () => {
             </button>
             <div className="lightbox-img-wrapper">
               <img
-                src={showcasePhotos[lightboxIndex].src}
-                alt={showcasePhotos[lightboxIndex].alt}
+                src={showcasePhotos[lightboxIndex]?.src || showcasePhotos[0]?.src || ''}
+                alt={showcasePhotos[lightboxIndex]?.alt || 'Gallery photo'}
                 className="lightbox-main-img"
                 id="lightbox-img"
               />

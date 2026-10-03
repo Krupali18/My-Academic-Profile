@@ -17,21 +17,21 @@ interface BTechStudent {
 const btechStudents: BTechStudent[] = [
   {
     name: 'Vatsal Patel',
-    img: '/assets/vatsal-patel.jpg',
+    img: '/assets/vatsal-patel.webp',
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Conditional Diffusion Modeling for Low-Frequency Underwater Acoustic Absorber Design, Computational modelling with a focus on open-source numerical simulations using FeniCS.',
     linkedin: 'https://www.linkedin.com/in/vatsalpatel09/',
   },
   {
     name: 'Yash Shah',
-    img: '/assets/yash-shah.jpeg',
+    img: '/assets/yash-shah.webp',
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Physics-Validated Inverse Design of Broadband Low-Frequency Underwater Acoustic Metamaterials, Computational modelling with a focus on open-source numerical simulations using FeniCS.',
     linkedin: 'https://www.linkedin.com/in/yash-shah-997323285/',
   },
   {
     name: 'Ashish Shrivastav',
-    img: '/assets/ashish.png',
+    img: '/assets/ashish.webp',
     imgStyle: { objectPosition: 'center 20%' },
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Temperature dependent inverse metasurface design, and financial question answering using VectorRAG and Knowledge Graphs (In collaboration with Prof. Erik Cambria, SenticNet Lab)',
@@ -39,7 +39,7 @@ const btechStudents: BTechStudent[] = [
   },
   {
     name: 'Priya Shah',
-    img: '/assets/priya shah.jpeg',
+    img: '/assets/priya shah.webp',
     imgStyle: { objectPosition: 'center 25%' },
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Studied LLM reasoning and information retrieval (In collaboration with Prof. Erik Cambria, SenticNet Lab)',
@@ -47,7 +47,7 @@ const btechStudents: BTechStudent[] = [
   },
   {
     name: 'Mann Alpahara',
-    img: '/assets/mann alpahara.jpeg',
+    img: '/assets/mann alpahara.webp',
     imgStyle: { objectPosition: 'center 20%' },
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Long term emotional support systems based on conversational memory (In collaboration with Prof. Erik Cambria, SenticNet Lab)',
@@ -55,7 +55,7 @@ const btechStudents: BTechStudent[] = [
   },
   {
     name: 'Moksh Shah',
-    img: '/assets/moksh shah.jpeg',
+    img: '/assets/moksh shah.webp',
     imgStyle: { objectPosition: 'center 30%' },
     role: 'B.Tech Student\n(ICT Department)',
     desc: 'Intelligent Metamaterials',
@@ -76,7 +76,7 @@ interface Intern {
 const interns: Intern[] = [
   {
     name: 'Kishlay Ojha',
-    img: '/assets/kishlay ojha.jpeg',
+    img: '/assets/kishlay ojha.webp',
     imgStyle: { objectPosition: '45% 22%' },
     role: 'B.Tech CSE\nTechno India University',
     desc: 'Topology optimisation and broadband metasurface for low frequency',
@@ -84,7 +84,7 @@ const interns: Intern[] = [
   },
   {
     name: 'Priya Shivani Narain',
-    img: '/assets/priya narein.jpeg',
+    img: '/assets/priya narein.webp',
     imgStyle: { objectPosition: 'center 20%' },
     role: 'BS Chemistry \nIIT Delhi',
     desc: 'Temperature sensitivity of acoustic metasurface absorption and the robust design of metamaterials for temperature-resilient performance.',
@@ -92,7 +92,7 @@ const interns: Intern[] = [
   },
   {
     name: 'Rudrani Joshi',
-    img: '/assets/rudrani joshi.jpeg',
+    img: '/assets/rudrani joshi.webp',
     imgStyle: { objectPosition: 'center 15%' },
     role: 'Computer Engineering \nPDEU',
     desc: 'Deep learning based robust design of metasurface for temperature-resilient performance.',
@@ -100,7 +100,7 @@ const interns: Intern[] = [
   },
   {
     name: 'Vansh Sharma',
-    img: '/assets/vansh-sharma.jpeg',
+    img: '/assets/vansh-sharma.webp',
     imgStyle: { objectPosition: 'center 20%' },
     role: 'B.Tech CSE\nJaypee Institute of Information Technology',
     desc: 'Intelligent Metamaterials & Artificial Neural Networks',
@@ -120,7 +120,7 @@ interface Alumnus {
 const alumni: Alumnus[] = [
   {
     name: 'Pankit Brahmkhatri',
-    img: '/assets/pankit-brahmkhatri.png',
+    img: '/assets/pankit-brahmkhatri.webp',
     topic: 'Machine learning for inverse design of acoustic and elastic metamaterials',
     current: 'Currently: MS Computer Science, Technische Universität Dresden, Germany',
     linkedin: 'https://www.linkedin.com/in/pankitrb/',
@@ -134,21 +134,21 @@ const alumni: Alumnus[] = [
   },
   {
     name: 'Heet Vekariya',
-    img: '/assets/hit-vekariya.jpg',
+    img: '/assets/hit-vekariya.webp',
     topic: 'Accelerating Meta-Absorber Design via Transformers',
     current: 'Currently: Founding AI Engineer at Ontio AI',
     linkedin: 'https://www.linkedin.com/in/heet-vekariya-16326024b/',
   },
   {
     name: 'Naimish Bhuva',
-    img: '/assets/naimish-bhuva.jpg',
+    img: '/assets/naimish-bhuva.webp',
     topic: 'Accelerating Meta-Absorber Design via Transformers',
     current: 'Currently: Co-Founder, GoofyDesign — Building SaaS & AI-driven Products',
     linkedin: 'https://www.linkedin.com/in/naimishbhuva/',
   },
   {
     name: 'Vimi Patel',
-    img: '/assets/vimi-patel.jpg',
+    img: '/assets/vimi-patel.webp',
     topic: 'Physics-Validated Inverse Design of Broadband Low-Frequency Underwater Acoustic Metamaterials',
     current: '',
     linkedin: 'https://www.linkedin.com/in/vimi-patel-487020252/',
@@ -189,7 +189,7 @@ export const GroupSection: React.FC = () => {
           <div className="gs-container fac-layout reveal">
             <div className="fac-image">
               <img
-                src="/assets/faculty-mentor-cropped.jpg"
+                src="/assets/faculty-mentor-cropped.webp"
                 alt="Dr. Krupali Donda, Principal Investigator"
                 loading="eager"
                 fetchPriority="high"
