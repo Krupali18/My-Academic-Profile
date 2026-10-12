@@ -31,7 +31,7 @@ const btechStudents: BTechStudent[] = [
   },
   {
     name: 'Ashish Shrivastav',
-    img: '/assets/ashish.webp',
+    img: '/assets/ashish.png',
     imgStyle: { objectPosition: 'center 20%' },
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Temperature dependent inverse metasurface design, and financial question answering using VectorRAG and Knowledge Graphs (In collaboration with Prof. Erik Cambria, SenticNet Lab)',
