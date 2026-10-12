@@ -92,7 +92,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                 aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
                 onClick={() => setIsPlaying((prev) => !prev)}
               >
-                <span id="play-pause-icon">{isPlaying ? '⏸' : '▶'}</span>
+                <span id="play-pause-icon">{isPlaying ? <Pause size={14} /> : <Play size={14} />}</span>
                 <span id="play-pause-label">{isPlaying ? 'Pause' : 'Play'}</span>
               </button>
               <span className="slider-counter" id="showcase-counter">
