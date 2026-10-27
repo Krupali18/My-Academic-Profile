@@ -14,37 +14,22 @@ export const HomeAboutSection: React.FC = () => {
           About Dr. Krupali Donda
         </h2>
         <p>
-          Dr. Krupali Donda is currently serving as an Assistant Professor in the Department of Information and
-          Communication Technology at Adani University since February 2025. She earned her Ph.D. in Acoustic
-          metasurfaces from the Institute Jean Lamour, CNRS, France, in 2022. Her doctoral research focused on
-          low-frequency acoustic absorbing metasurfaces using deep learning approaches, combining computational
-          intelligence with experimental validation. She completed her M.E. in Electronics and Communication Engineering
-          from Gujarat Technological University.
+          Dr. Krupali Donda is an Assistant Professor in the Department of Information and Communication Technology at Adani University, where she has been serving since February 2025. In 2025, she also served as a Visiting Scientist at the Indian Institute of Technology Delhi (IIT Delhi).
         </p>
         <p>
-          Her research lies at the intersection of machine learning, metamaterials, metasurfaces, and wave propagation,
-          with a strong emphasis on data-driven inverse design and experimental realization. Dr. Donda has contributed
-          extensively to the development of ultrathin acoustic metasurfaces capable of efficient low-frequency sound
-          absorption. Her work integrates deep learning techniques to enable high-dimensional design optimization,
-          accelerating the discovery of advanced functional materials.
-        </p>
-        <p className="about-list-intro">Dr. Donda's research contributions include:</p>
-        <ul>
-          <li>Deep learning–based inverse design of acoustic and phononic metamaterials</li>
-          <li>Development of ultrathin, broadband acoustic absorbers</li>
-          <li>Exploration of wave manipulation using metasurfaces</li>
-          <li>Application of AI techniques such as Vision Transformers for accelerated material design</li>
-        </ul>
-        <p>
-          Her work has been published in reputed journals such as Extreme Mechanics Letters, Applied Physics Letters,
-          Smart Materials and Structures, and Physical Review B, making impactful contributions to the field of acoustic
-          metamaterials and computational material design.
+          She received her Ph.D. in acoustic metasurfaces from the Institute Jean Lamour, CNRS, France, in 2022. Her doctoral research, funded by the U.S. Air Force Office of Scientific Research (AFOSR), USA focused on designing and experimentally validating ultrathin acoustic metasurfaces for efficient low-frequency sound absorption. Her work integrated computational modeling, deep learning, and experimental investigations to address challenges in acoustic wave manipulation and functional material design.
         </p>
         <p>
-          Dr. Donda has received several prestigious recognitions, including the Visiting Scientist Fellowship by the
-          Indian National Science Academy (2025) and the Women in Acoustics Emerging Investigator Award. She has
-          presented her research at leading international conferences, including ASA–ASJ joint meetings and IISc
-          Bangalore, demonstrating global academic engagement.
+          Prior to her doctoral studies in France, Dr. Donda worked as a Research Fellow at IIT Gandhinagar, where she explored optical metasurface. Her research journey began with a Master’s internship at ITER-India, Institute for Plasma Research, where she gained experience in experimental and applied scientific research.
+        </p>
+        <p>
+          Dr. Donda’s research lies at the intersection of scientific machine learning, artificial intelligence, metamaterials, metasurfaces, and wave propagation. Her primary research interests include deep learning–based inverse design of acoustic and phononic metamaterials, the development of ultrathin and broadband acoustic absorbers, and the application of AI-driven approaches to wave manipulation and functional material optimization.
+        </p>
+        <p>
+          She has delivered invited talks at scientific forums like the Acoustical Society of America (ASA), Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat. Her recognitions include the Indian National Science Academy (INSA) Visiting Scientist Fellowship in 2025 and the Women in Acoustics Emerging Investigator Award by Acoustic Society of America.
+        </p>
+        <p>
+          Dr. Donda believes that education, both formal and informal, is a powerful catalyst for positive societal change. Through her research, teaching, and academic collaborations, she aims to advance scientific understanding, contribute to the development of intelligent functional materials, and inspire the next generation of researchers.
         </p>
       </div>
     </section>

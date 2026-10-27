@@ -8,13 +8,13 @@ export const AboutNarrativeSection: React.FC = () => {
           <li className="about-point-item">
             <span className="about-point-dot" aria-hidden="true" />
             <div className="about-point-text">
-              <strong>18 years in Bhavnagar:</strong> parents, brother, grandma, CSMCRI, Dakshinamurti, Takhteshwar Tekri, school days, endless memories, Pappubhai ni panipuri, and the first little dreams of what life could become…
+              <strong>18 years in Bhavnagar:</strong> parents, brother, grandma, CSMCRI, Dakshinamurti, Takhteshwar Tekri, school days, Prasar, Pappubhai ni panipuri, and the first little dreams of what life could become…
             </div>
           </li>
           <li className="about-point-item">
             <span className="about-point-dot" aria-hidden="true" />
             <div className="about-point-text">
-              <strong>10 years in Gandhinagar:</strong> new friends, college life, gardens, long conversations, discovering independence, teaching, research, and slowly finding my place in academia.
+              <strong>10 years in Gandhinagar:</strong> new friends, college life, long conversations, discovering independence, first introduction to research
             </div>
           </li>
           <li className="about-point-item">
