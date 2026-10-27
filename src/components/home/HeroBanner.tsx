@@ -31,7 +31,11 @@ export const HeroBanner: React.FC = () => {
             Krupali Donda<span />
           </h1>
           <div className="hero-details">
-            <p>Researcher | STEM Mentor | AU | IIT Delhi | CNRS, France | IIT Gandhinagar</p>
+            <p>
+              Researcher | STEM Mentor
+              <br />
+              AU | IIT Delhi | CNRS, France | IIT Gandhinagar
+            </p>
             <p className="glimpse-link" style={{ marginTop: '15px' }}>
               Area of Research: Wave Propagation, Metamaterials, Intelligent Metasurface Design, Machine Learning
             </p>

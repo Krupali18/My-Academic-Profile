@@ -35,12 +35,14 @@ export const HomePage: React.FC = () => {
         <meta name="twitter:description" content={seo.twitterDescription} />
         <meta name="twitter:image" content={seo.twitterImage} />
         {seo.ogImageAlt && <meta name="twitter:image:alt" content={seo.ogImageAlt} />}
-        {seo.jsonLd && (
+        {/* JSON-LD: must use dangerouslySetInnerHTML — JSX children not supported in Helmet scripts */}
+        {(Array.isArray(seo.jsonLd) ? seo.jsonLd : seo.jsonLd ? [seo.jsonLd] : []).map((item, i) => (
           <script
+            key={i}
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(seo.jsonLd) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
           />
-        )}
+        ))}
       </Helmet>
 
       <AcademicIntro />

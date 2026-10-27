@@ -204,10 +204,7 @@ export const GroupSection: React.FC = () => {
                 <span className="fac-cred">(Ph.D. Institut Jean Lamour, France)</span>
               </div>
               <p className="fac-text">
-                My research focuses on metamaterials and acoustic metasurfaces, wave propagation, and machine learning for
-                intelligent design and optimization of engineered wave systems. My current work particularly explores
-                low-frequency acoustic absorption, inverse metamaterial design, and deep-learning-based development of
-                advanced metasurface structures.
+                Dr. Krupali Donda’s research focuses on the intersection of metamaterials, acoustic metasurfaces, wave physics, and machine learning, with an emphasis on intelligent, data-driven approaches to the design, optimization, and control of engineered wave systems. Her core research interests include low-frequency acoustic absorption, inverse metamaterial design, and deep-learning-assisted development of advanced metasurface architectures. Her broader interests also encompass machine learning and large language model (LLM)-based applications in intelligent systems, including financial analysis, emotion recognition, and human-centered AI, with a focus on predictive modeling, adaptive decision-making, and the development of efficient, interpretable, and application-oriented AI solutions.
               </p>
             </div>
           </div>
