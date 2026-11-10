@@ -183,30 +183,10 @@ export const WaveformCanvas: React.FC = () => {
     };
 
     document.addEventListener('visibilitychange', onVisibilityChange);
-
-    // Defer waveform animation while AcademicIntro preloader covers the screen
-    const isPreloaderActive = () => {
-      const p = document.getElementById('site-preloader');
-      return p && p.style.display !== 'none';
-    };
-
-    let introTimeout: ReturnType<typeof setTimeout> | null = null;
-    const onIntroComplete = () => {
-      if (introTimeout) clearTimeout(introTimeout);
-      start();
-    };
-
-    if (isPreloaderActive()) {
-      window.addEventListener('academic-intro-complete', onIntroComplete, { once: true });
-      introTimeout = setTimeout(onIntroComplete, 3500);
-    } else {
-      start();
-    }
+    start();
 
     return () => {
       stop();
-      if (introTimeout) clearTimeout(introTimeout);
-      window.removeEventListener('academic-intro-complete', onIntroComplete);
       window.removeEventListener('resize', resizeCanvas);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       if (parent) {
