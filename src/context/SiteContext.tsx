@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 
 export interface SiteContextType {
   isMobile: boolean;
@@ -51,28 +51,31 @@ export const SiteProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   }, []);
 
 
-  const openModal = (modalId: string) => {
+  const openModal = useCallback((modalId: string) => {
     setActiveModal(modalId);
     // RELIABILITY-03 FIX: Use class instead of inline style to avoid conflicts
     // with AcademicIntro's own body overflow control
     document.body.classList.add('modal-open');
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setActiveModal(null);
     document.body.classList.remove('modal-open');
-  };
+  }, []);
+
+  const contextValue = useMemo(
+    () => ({
+      isMobile,
+      prefersReducedMotion,
+      activeModal,
+      openModal,
+      closeModal,
+    }),
+    [isMobile, prefersReducedMotion, activeModal, openModal, closeModal]
+  );
 
   return (
-    <SiteContext.Provider
-      value={{
-        isMobile,
-        prefersReducedMotion,
-        activeModal,
-        openModal,
-        closeModal,
-      }}
-    >
+    <SiteContext.Provider value={contextValue}>
       {children}
     </SiteContext.Provider>
   );
