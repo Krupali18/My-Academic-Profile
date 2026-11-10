@@ -28,6 +28,9 @@ export default defineConfig({
     port: 3000,
     open: false,
   },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
   build: {
     target: 'esnext',
     // H10 FIX: Lowered from 800 to 500 — this forces us to notice if chunks get too big
