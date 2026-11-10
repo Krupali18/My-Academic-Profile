@@ -57,6 +57,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       }
       document.body.style.removeProperty('overflow');
       onComplete?.();
+      window.dispatchEvent(new CustomEvent('academic-intro-complete'));
       return;
     }
 
@@ -499,6 +500,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       }
 
       if (onComplete) onComplete();
+      window.dispatchEvent(new CustomEvent('academic-intro-complete'));
     }
 
     // ── Main Continuous FLIP Morph Sequence ──────────────────────────────
@@ -880,6 +882,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
             const brand = document.getElementById('site-nav-brand');
             if (brand) brand.style.opacity = '1';
             if (onComplete) onComplete();
+            window.dispatchEvent(new CustomEvent('academic-intro-complete'));
           }
         }}
       >

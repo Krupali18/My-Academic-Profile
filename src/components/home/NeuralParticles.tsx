@@ -58,8 +58,8 @@ export const NeuralParticles: React.FC = () => {
     resize();
     window.addEventListener('resize', resize, { passive: true });
 
-    // Spawn 75 particles
-    const particleCount = width < 768 ? 40 : 75;
+    // Spawn particles (optimized density on mobile to eliminate quadratic distance calculation lag)
+    const particleCount = width < 768 ? 25 : 75;
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
@@ -249,10 +249,29 @@ export const NeuralParticles: React.FC = () => {
     );
     if (containerRef.current) observer.observe(containerRef.current);
 
-    start();
+    // Defer canvas rendering while AcademicIntro preloader covers the screen
+    const isPreloaderActive = () => {
+      const p = document.getElementById('site-preloader');
+      return p && p.style.display !== 'none';
+    };
+
+    let introTimeout: ReturnType<typeof setTimeout> | null = null;
+    const onIntroComplete = () => {
+      if (introTimeout) clearTimeout(introTimeout);
+      start();
+    };
+
+    if (isPreloaderActive()) {
+      window.addEventListener('academic-intro-complete', onIntroComplete, { once: true });
+      introTimeout = setTimeout(onIntroComplete, 3500);
+    } else {
+      start();
+    }
 
     return () => {
       stop();
+      if (introTimeout) clearTimeout(introTimeout);
+      window.removeEventListener('academic-intro-complete', onIntroComplete);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       observer.disconnect();
       window.removeEventListener('resize', resize);
