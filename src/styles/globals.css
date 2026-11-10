@@ -1,15 +1,17 @@
-/* PERF-01: Self-hosted fonts via @fontsource — eliminates Google Fonts network request.
-   Fonts are bundled with the app: no external DNS lookup, no FOIT, no CORS overhead. */
-@import '@fontsource/montserrat/300.css';
-@import '@fontsource/montserrat/400.css';
-@import '@fontsource/montserrat/500.css';
-@import '@fontsource/montserrat/600.css';
-@import '@fontsource/montserrat/700.css';
-@import '@fontsource/montserrat/800.css';
-@import '@fontsource/montserrat/400-italic.css';
-@import '@fontsource/jetbrains-mono/400.css';
-@import '@fontsource/dancing-script/600.css';
-@import '@fontsource/dancing-script/700.css';
+/* PERF-01: Self-hosted fonts via @fontsource (Latin + Latin-ext subsets).
+   Eliminates unused Cyrillic, Vietnamese, and Greek subsets to reduce CSS size and font declarations. */
+@import '@fontsource/montserrat/latin-300.css';
+@import '@fontsource/montserrat/latin-400.css';
+@import '@fontsource/montserrat/latin-ext-400.css';
+@import '@fontsource/montserrat/latin-500.css';
+@import '@fontsource/montserrat/latin-600.css';
+@import '@fontsource/montserrat/latin-ext-600.css';
+@import '@fontsource/montserrat/latin-700.css';
+@import '@fontsource/montserrat/latin-800.css';
+@import '@fontsource/montserrat/latin-400-italic.css';
+@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource/dancing-script/latin-600.css';
+@import '@fontsource/dancing-script/latin-700.css';
 
 @tailwind base;
 @tailwind components;
