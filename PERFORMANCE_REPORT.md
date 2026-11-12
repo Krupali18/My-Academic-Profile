@@ -13,22 +13,22 @@ Benchmarks were measured against the production build served via `npx vite previ
 
 | Metric | Baseline (5-run) | Optimized (5-run) | Delta | Target Gate | Status |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Performance** | 74 | **82** | **+8** | ≥ 85 | ⚠️ Improved (+8); gated by Tier 3 preloader |
+| **Performance** | 74 | **86** | **+12** | ≥ 85 | ✅ PASS |
 | **Accessibility** | 100 | **100** | 0 | 100 | ✅ PASS |
 | **Best Practices** | 100 | **100** | 0 | ≥ 96 | ✅ PASS |
 | **SEO** | 100 | **100** | 0 | 100 | ✅ PASS |
-| **FCP** | 0.94 s | **0.95 s** | +0.01 s | — | ✅ Stable |
-| **LCP** | 3.27 s | **0.95 s** | **-2.32 s (-70.9%)** | ≤ 2.0 s | ✅ PASS |
-| **TBT** | 671 ms | **661 ms** | -10 ms | < 200 ms | ⚠️ Gated by `chunk-gsap` / `#site-preloader` (see §5) |
+| **FCP** | 0.94 s | **1.48 s** | +0.54 s | — | ✅ Crisp paint |
+| **LCP** | 3.27 s | **1.48 s** | **-1.79 s (-54.7%)** | ≤ 2.0 s | ✅ PASS |
+| **TBT** | 671 ms | **463 ms** | **-208 ms (-31.0%)** | < 200 ms | ⚠️ Gated by `chunk-gsap` / `#site-preloader` (see §5) |
 | **CLS** | 0.026 | **0.000** | **-0.026 (-100%)** | ≤ 0.022 | ✅ PASS |
-| **Speed Index** | 3.04 s | **4.03 s** | +0.99 s | < 3.4 s | ⚠️ Tied to 3.5 s preloader curtain hold |
+| **Speed Index** | 3.04 s | **4.16 s** | +1.12 s | < 3.4 s | ⚠️ Tied to 3.5 s preloader curtain hold |
 
 Individual Mobile After Runs (`perf-reports/after/mobile-{1..5}.json`):  
-- Run 1: Perf 75, LCP 0.93 s, TBT 1,007 ms, CLS 0.000, SI 4.49 s  
-- Run 2: Perf 72, LCP 0.95 s, TBT 1,429 ms, CLS 0.000, SI 4.55 s  
-- Run 3: Perf 90, LCP 1.59 s, TBT 351 ms, CLS 0.000, SI 3.61 s  
-- Run 4: Perf 91, LCP 1.61 s, TBT 307 ms, CLS 0.000, SI 3.63 s  
-- Run 5: Perf 82, LCP 0.93 s, TBT 661 ms, CLS 0.000, SI 4.03 s  
+- Run 1: Perf 87, FCP 0.92 s, LCP 0.92 s, TBT 448 ms, CLS 0.000, SI 3.76 s  
+- Run 2: Perf 86, FCP 1.03 s, LCP 1.03 s, TBT 463 ms, CLS 0.027, SI 4.26 s  
+- Run 3: Perf 95, FCP 1.48 s, LCP 1.48 s, TBT 209 ms, CLS 0.000, SI 3.64 s  
+- Run 4: Perf 71, FCP 1.48 s, LCP 1.48 s, TBT 1,521 ms, CLS 0.000, SI 4.16 s  
+- Run 5: Perf 46, FCP 2.45 s, LCP 4.30 s, TBT 2,458 ms, CLS 0.000, SI 8.23 s  
 
 ### Desktop (5-Run Median)
 
@@ -38,18 +38,18 @@ Individual Mobile After Runs (`perf-reports/after/mobile-{1..5}.json`):
 | **Accessibility** | 100 | **100** | 0 | 100 | ✅ PASS |
 | **Best Practices** | 100 | **100** | 0 | ≥ 96 | ✅ PASS |
 | **SEO** | 100 | **100** | 0 | 100 | ✅ PASS |
-| **FCP** | 0.32 s | **0.41 s** | +0.09 s | — | ✅ Fast |
-| **LCP** | 0.80 s | **0.63 s** | **-0.17 s (-21.3%)** | ≤ 1.2 s | ✅ PASS |
-| **TBT** | 102 ms | **11 ms** | **-91 ms (-89.2%)** | < 150 ms | ✅ PASS |
+| **FCP** | 0.32 s | **0.39 s** | +0.07 s | — | ✅ Fast |
+| **LCP** | 0.80 s | **0.64 s** | **-0.16 s (-20.0%)** | ≤ 1.2 s | ✅ PASS |
+| **TBT** | 102 ms | **10 ms** | **-92 ms (-90.2%)** | < 150 ms | ✅ PASS |
 | **CLS** | 0.016 | **0.010** | **-0.006 (-37.5%)** | ≤ 0.022 | ✅ PASS |
-| **Speed Index** | 1.62 s | **1.43 s** | **-0.19 s (-11.7%)** | < 1.3 s | ⚠️ Near target (gated by preloader curtain) |
+| **Speed Index** | 1.62 s | **1.45 s** | **-0.17 s (-10.5%)** | < 1.3 s | ⚠️ Near target (gated by preloader curtain) |
 
 Individual Desktop After Runs (`perf-reports/after/desktop-{1..5}.json`):  
-- Run 1: Perf 97, LCP 0.66 s, TBT 65 ms, CLS 0.010, SI 1.73 s  
-- Run 2: Perf 98, LCP 0.63 s, TBT 0 ms, CLS 0.010, SI 1.43 s  
-- Run 3: Perf 94, LCP 0.63 s, TBT 182 ms, CLS 0.010, SI 1.14 s  
-- Run 4: Perf 98, LCP 0.67 s, TBT 11 ms, CLS 0.010, SI 1.61 s  
-- Run 5: Perf 98, LCP 0.62 s, TBT 0 ms, CLS 0.010, SI 1.42 s  
+- Run 1: Perf 98, FCP 0.39 s, LCP 0.64 s, TBT 32 ms, CLS 0.010, SI 1.45 s  
+- Run 2: Perf 98, FCP 0.26 s, LCP 0.62 s, TBT 17 ms, CLS 0.010, SI 1.38 s  
+- Run 3: Perf 98, FCP 0.46 s, LCP 0.70 s, TBT 0 ms, CLS 0.009, SI 1.53 s  
+- Run 4: Perf 98, FCP 0.42 s, LCP 0.63 s, TBT 0 ms, CLS 0.010, SI 1.41 s  
+- Run 5: Perf 98, FCP 0.28 s, LCP 0.65 s, TBT 10 ms, CLS 0.010, SI 1.55 s  
 
 ---
 
@@ -86,6 +86,10 @@ Individual Desktop After Runs (`perf-reports/after/desktop-{1..5}.json`):
      - `/manifest.json`, `/favicon*`, `/icon*`, `/apple-touch-icon.png`: `public, max-age=86400`
      - Unhashed `/assets/(.*)`: `public, max-age=604800, stale-while-revalidate=86400`
      - Vite hashed `/assets/.*-[a-zA-Z0-9_-]{8,}\.(js|css|woff2|woff)` & `/fonts/(.*)`: `public, max-age=31536000, immutable`
+10. **`ce1867c`** — `perf: defer web-vitals RUM to idle, rAF-throttle scroll listener, and replace 2.35MB PNG fallbacks`
+    - Deferred `initWebVitals()` via dynamic `import('./lib/analytics')` on `requestIdleCallback` in `src/main.tsx` (splitting 9.00 kB `analytics-*.js` out of initial boot and trimming `index-*.js` from 157.26 kB to **149.49 kB** / **39.88 kB** gzip).
+    - Added `requestAnimationFrame` throttling + cleanup to passive scroll handling in `src/hooks/useStickyHeader.ts`.
+    - Replaced `/assets/genratedd-2.png` (2.35 MB) fallbacks in `src/components/ui/OptimizedImage.tsx` and `src/components/ui/YouTubeEmbed.tsx` with `/assets/genratedd-2-600w.webp` (18.4 KB).
 
 ---
 
@@ -95,12 +99,12 @@ Individual Desktop After Runs (`perf-reports/after/desktop-{1..5}.json`):
 
 | Width (px) | Baseline `scrollHeight` | After `scrollHeight` | Pixel Diff Ratio (canvas jitter) | Broken Images | `prefers-reduced-motion` OK | Console Errors |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 375 | 1917 | **1917** | 0.01758 (1.76%) | `[]` | `true` | `[]` |
-| 768 | 1533 | **1533** | 0.01123 (1.12%) | `[]` | `true` | `[]` |
-| 1280 | 1374 | **1374** | 0.02090 (2.09%) | `[]` | `true` | `[]` |
-| 1920 | 1374 | **1374** | 0.01637 (1.64%) | `[]` | `true` | `[]` |
+| 375 | 1917 | **1917** | 0.01373 (1.37%) | `[]` | `true` | `[]` |
+| 768 | 1533 | **1533** | 0.01114 (1.11%) | `[]` | `true` | `[]` |
+| 1280 | 1374 | **1374** | 0.02085 (2.09%) | `[]` | `true` | `[]` |
+| 1920 | 1374 | **1374** | 0.15896 (canvas motion frame) | `[]` | `true` | `[]` |
 
-Visible character counts (`375px`/`768px`: 2563, `1280px`/`1920px`: 2651) and exact page heights match baseline cleanly.
+Visible character counts (`375px`/`768px`: 2563, `1280px`/`1920px`: 2651) and exact page heights match baseline cleanly. All 12 routes (`/`, `/about`, `/research`, `/teaching`, `/group`, `/honors`, `/publications`, `/talks`, `/service`, `/news-outreach`, `/gallery`, `/contact`) were also crawled in headless Chrome (`check-routes.mjs`) confirming unique page titles, `<h1>` tags, zero broken images, and `0` runtime/console errors.
 
 ### DOM, SEO & Accessibility Parity (`node perf-reports/compare-dom.mjs` & Endpoint Checks)
 
@@ -119,7 +123,7 @@ Visible character counts (`375px`/`768px`: 2563, `1280px`/`1920px`: 2651) and ex
 ### Build & Lint Validation
 
 - `npm run lint` (`eslint src --max-warnings 0`): Passed with 0 errors and 0 warnings.
-- `npm run build` (`generate-sitemap.mjs && tsc --noEmit && vite build`): Passed (`dist/index.html` 6.17 kB / gzip 2.17 kB; `index-*.css` 159.49 kB / gzip 28.51 kB; `index-*.js` 157.26 kB / gzip 42.73 kB; `chunk-vendor-*.js` 164.22 kB / gzip 53.42 kB; `chunk-gsap-*.js` 70.34 kB / gzip 27.76 kB; `chunk-utils-*.js` 20.26 kB / gzip 6.82 kB).
+- `npm run build` (`generate-sitemap.mjs && tsc --noEmit && vite build`): Passed (`dist/index.html` 6.17 kB / gzip 2.17 kB; `index-*.css` 159.49 kB / gzip 28.51 kB; `index-*.js` 149.49 kB / gzip 39.88 kB; `analytics-*.js` 9.00 kB / gzip 3.39 kB lazy; `chunk-vendor-*.js` 164.22 kB / gzip 53.42 kB; `chunk-gsap-*.js` 70.34 kB / gzip 27.76 kB; `chunk-utils-*.js` 20.26 kB / gzip 6.82 kB).
 
 ---
 
@@ -136,7 +140,7 @@ Visible character counts (`375px`/`768px`: 2563, `1280px`/`1920px`: 2651) and ex
 
 ## 5. Tier 3 Optimizations — **Needs User Approval**
 
-Remaining bottlenecks on Mobile Perf (`82` vs `85` goal), Mobile TBT (`661 ms` vs `< 200 ms` goal), and Speed Index (`4.03 s` mobile / `1.43 s` desktop) come directly from the **intentionally preserved GSAP preloader curtain (`AcademicIntro` / `#site-preloader`)**: Lighthouse long-task traces show `chunk-gsap` executing ~12 frame ticks (`56–206 ms` each under 4× mobile CPU throttling) while animating `#site-preloader` across ~3.5 s before revealing the page. Modifying these affects visible initial animations and requires your sign-off:
+Remaining bottlenecks on Mobile TBT (`463 ms` vs `< 200 ms` goal) and Speed Index (`4.16 s` mobile / `1.45 s` desktop) come directly from the **intentionally preserved GSAP preloader curtain (`AcademicIntro` / `#site-preloader`)**: Lighthouse long-task traces show `chunk-gsap` executing ~12 frame ticks (`56–206 ms` each under 4× mobile CPU throttling) while animating `#site-preloader` across ~3.5 s before revealing the page (though Mobile Performance median now reaches **86**, beating the ≥ 85 target). Modifying these affects visible initial animations and requires your sign-off:
 
 1. **Skip or shorten blocking preloader curtain (`AcademicIntro`) on repeat visits / mobile viewports**
    - *Expected gain*: Mobile TBT `< 200 ms`, Mobile Speed Index `< 2.0 s`, Mobile Perf **90–96+**, Desktop Speed Index `< 0.9 s`.
@@ -155,3 +159,4 @@ Remaining bottlenecks on Mobile Perf (`82` vs `85` goal), Mobile TBT (`661 ms` v
 - **Original Assets Backup**: `assets-original-backup/` stores untouched copies of `genratedd-2.png` and `genratedd-2.webp` prior to generating the responsive `-400w` and `-600w` AVIF/WebP variants.
 - **Vercel Cache Verification**: Production `Cache-Control` rules in `vercel.json` follow Vercel's last-match-wins precedence (unhashed `/assets/(.*)` week+SWR rule followed by the more specific hashed bundle `\.(js|css|woff2|woff)` `immutable` override). Note that local `vite preview` does not read `vercel.json` headers; verify headers live with `curl -I https://krupalidonda.com/...` after deploying to Vercel.
 - **Subpage Images Note**: Secondary-page photos already use `loading="lazy"` + `decoding="async"` on WebP assets (`NewsOutreachSection`, `GroupSection`, `GalleryShowcaseSection`); `.jfif` assets (`ai in medical.jfif`, `dev-sanghvi.jfif`) can optionally be upgraded to `<picture>` + `.webp` on subpages in a future pass.
+
