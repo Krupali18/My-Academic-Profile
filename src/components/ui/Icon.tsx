@@ -1,5 +1,5 @@
 import React from 'react';
-import * as LucideIcons from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 
 export interface IconProps {
@@ -79,13 +79,11 @@ export function Icon({ name = '', className, size = 20 }: IconProps): React.Reac
       );
   }
 
-  // Lookup in Lucide icons
-  const lucideMap = (LucideIcons as unknown) as Record<string, React.ElementType>;
-  
-  // Exact match
+  // Explicit tree-shaken fallback map (avoids barrel-importing all of lucide-react)
+  const lucideMap: Record<string, React.ElementType> = { Sparkles };
+
   let Component = lucideMap[name];
 
-  // Try PascalCase match if not found
   if (!Component && name) {
     const pascalName = name
       .split(/[-_\s]+/)
@@ -99,6 +97,5 @@ export function Icon({ name = '', className, size = 20 }: IconProps): React.Reac
   }
 
   // Fallback to Sparkles
-  const Fallback = LucideIcons.Sparkles;
-  return <Fallback size={size} className={className} aria-hidden="true" />;
+  return <Sparkles size={size} className={className} aria-hidden="true" />;
 }
