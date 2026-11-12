@@ -72,23 +72,8 @@ export default defineConfig({
       output: {
         manualChunks(id: string) {
           if (id.includes('node_modules')) {
-            // H11 FIX: Split the monolithic 'animations' chunk into three separate
-            // lazy-loadable chunks (gsap / framer-motion / tsparticles).
-            // Previously all 3 were bundled together into one ~880KB raw chunk.
-            // Now each page only loads the animation library it actually needs.
             if (id.includes('gsap')) {
               return 'chunk-gsap';
-            }
-            if (id.includes('framer-motion')) {
-              return 'chunk-framer';
-            }
-            if (id.includes('@tsparticles') || id.includes('tsparticles')) {
-              return 'chunk-particles';
-            }
-
-            // Core UI icons — Lucide is tree-shaken but put in a stable chunk
-            if (id.includes('lucide-react')) {
-              return 'chunk-icons';
             }
 
             // Core React runtime + routing — always needed, cache-stable
@@ -101,17 +86,8 @@ export default defineConfig({
               return 'chunk-vendor';
             }
 
-            // DOMPurify — security utility, stable cache fingerprint
-            if (id.includes('isomorphic-dompurify') || id.includes('dompurify')) {
-              return 'chunk-dompurify';
-            }
-
             // Utility libraries — infrequently updated, good caching
-            if (
-              id.includes('date-fns') ||
-              id.includes('clsx') ||
-              id.includes('tailwind-merge')
-            ) {
+            if (id.includes('clsx') || id.includes('tailwind-merge')) {
               return 'chunk-utils';
             }
           }
