@@ -20,7 +20,7 @@ export function YouTubeEmbed({ url, title, className }: YouTubeEmbedProps): Reac
 
   const thumbnailUrl = videoId
     ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-    : '/assets/genratedd-2.png';
+    : '/assets/genratedd-2-600w.webp';
 
   const embedUrl = videoId
     ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`

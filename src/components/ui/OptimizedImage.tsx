@@ -13,7 +13,7 @@ export function OptimizedImage({
   src,
   alt,
   className,
-  fallbackSrc = '/assets/genratedd-2.png',
+  fallbackSrc = '/assets/genratedd-2-600w.webp',
   priority = false,
   ...props
 }: OptimizedImageProps): React.ReactElement {
