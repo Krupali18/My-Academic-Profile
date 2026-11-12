@@ -34,6 +34,13 @@ export const NeuralParticles: React.FC = () => {
     let height = 0;
     let isVisible = true;
     let isTabVisible = !document.hidden;
+    let isCurtainBlocking = Boolean(
+      (() => {
+        const p = document.getElementById('site-preloader');
+        return p && p.style.display !== 'none' && !window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+      })()
+    );
+    let containerRect = container.getBoundingClientRect();
 
     const palette = [
       { r: 37, g: 99, b: 235 }, // #2563EB
@@ -45,6 +52,10 @@ export const NeuralParticles: React.FC = () => {
     const particles: ParticleNode[] = [];
     const signals: SignalPacket[] = [];
 
+    function updateRect() {
+      if (container) containerRect = container.getBoundingClientRect();
+    }
+
     function resize() {
       if (!canvas || !container || !ctx) return;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -53,12 +64,14 @@ export const NeuralParticles: React.FC = () => {
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      updateRect();
     }
 
     resize();
     window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('scroll', updateRect, { passive: true });
 
-    // Spawn 75 particles
+    // Spawn particles (40 mobile / 75 desktop — visually unchanged)
     const particleCount = width < 768 ? 40 : 75;
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -76,9 +89,8 @@ export const NeuralParticles: React.FC = () => {
     let mouseY = -1000;
 
     const onMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
+      mouseX = e.clientX - containerRect.left;
+      mouseY = e.clientY - containerRect.top;
     };
 
     const onMouseLeave = () => {
@@ -90,7 +102,7 @@ export const NeuralParticles: React.FC = () => {
     container.addEventListener('mouseleave', onMouseLeave, { passive: true });
 
     function shouldAnimate() {
-      return isVisible && isTabVisible;
+      return isVisible && isTabVisible && !isCurtainBlocking;
     }
 
     function stop() {
@@ -106,7 +118,10 @@ export const NeuralParticles: React.FC = () => {
       }
     }
 
-    function render() {
+    const maxDistSq = 190 * 190;
+    const mouseDistSq = 160 * 160;
+
+    function drawFrame() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
 
@@ -125,8 +140,9 @@ export const NeuralParticles: React.FC = () => {
         if (mouseX > 0) {
           const dx = p1.x - mouseX;
           const dy = p1.y - mouseY;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 160 && dist > 1) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < mouseDistSq && distSq > 1) {
+            const dist = Math.sqrt(distSq);
             const force = (1 - dist / 160) * 1.5;
             p1.x += (dx / dist) * force;
             p1.y += (dy / dist) * force;
@@ -137,9 +153,10 @@ export const NeuralParticles: React.FC = () => {
           const p2 = particles[j];
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < 190) {
+          if (distSq < maxDistSq) {
+            const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / 190) * 0.48;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -215,17 +232,26 @@ export const NeuralParticles: React.FC = () => {
         const sx = sig.from.x + (sig.to.x - sig.from.x) * sig.progress;
         const sy = sig.from.y + (sig.to.y - sig.from.y) * sig.progress;
 
-        ctx.save();
+        // Soft glow halo without shadowBlur CPU overhead
+        ctx.beginPath();
+        ctx.arc(sx, sy, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(96, 165, 250, 0.35)';
+        ctx.fill();
+
         ctx.beginPath();
         ctx.arc(sx, sy, 2.2, 0, Math.PI * 2);
         ctx.fillStyle = '#FFFFFF';
-        ctx.shadowColor = '#60A5FA';
-        ctx.shadowBlur = 8;
         ctx.fill();
-        ctx.restore();
       }
+    }
 
-      animId = requestAnimationFrame(render);
+    function render() {
+      drawFrame();
+      if (shouldAnimate()) {
+        animId = requestAnimationFrame(render);
+      } else {
+        animId = null;
+      }
     }
 
     // Pause when tab is hidden (saves CPU/GPU and battery)
@@ -249,10 +275,23 @@ export const NeuralParticles: React.FC = () => {
     );
     if (containerRef.current) observer.observe(containerRef.current);
 
-    start();
+    const onCurtainOpening = () => {
+      isCurtainBlocking = false;
+      start();
+    };
+
+    // Draw initial crisp frame immediately so hero is populated behind curtain
+    drawFrame();
+    if (isCurtainBlocking) {
+      window.addEventListener('academic-intro-curtain-opening', onCurtainOpening, { once: true });
+    } else {
+      start();
+    }
 
     return () => {
       stop();
+      window.removeEventListener('academic-intro-curtain-opening', onCurtainOpening);
+      window.removeEventListener('scroll', updateRect);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       observer.disconnect();
       window.removeEventListener('resize', resize);

@@ -20,20 +20,32 @@ export const WaveformCanvas: React.FC = () => {
     let animationFrameId: number | null = null;
     let isCanvasVisible = true;
     let isTabVisible = !document.hidden;
+    let isCurtainBlocking = Boolean(
+      (() => {
+        const p = document.getElementById('site-preloader');
+        return p && p.style.display !== 'none';
+      })()
+    );
     let step = 5;
+    let canvasRect = canvas.getBoundingClientRect();
 
     let xPoints: number[] = [];
     let envelopes: number[] = [];
     let baseFreqs: number[] = [];
 
+    function updateRect() {
+      if (canvas) canvasRect = canvas.getBoundingClientRect();
+    }
+
     function resizeCanvas() {
       if (!canvas || !ctx) return;
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
       width = canvas.parentElement ? canvas.parentElement.offsetWidth : window.innerWidth;
       height = canvas.parentElement ? canvas.parentElement.offsetHeight : 550;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      updateRect();
 
       xPoints = [];
       envelopes = [];
@@ -49,6 +61,7 @@ export const WaveformCanvas: React.FC = () => {
 
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas, { passive: true });
+    window.addEventListener('scroll', updateRect, { passive: true });
 
     let mouseX = width / 2;
     let mouseY = height / 2;
@@ -59,9 +72,8 @@ export const WaveformCanvas: React.FC = () => {
 
     const parent = canvas.parentElement;
     const onMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      targetMouseX = e.clientX - rect.left;
-      targetMouseY = e.clientY - rect.top;
+      targetMouseX = e.clientX - canvasRect.left;
+      targetMouseY = e.clientY - canvasRect.top;
       isHovering = true;
     };
     const onMouseLeave = () => {
@@ -76,7 +88,7 @@ export const WaveformCanvas: React.FC = () => {
     let time = 0;
 
     function shouldAnimate() {
-      return isCanvasVisible && isTabVisible;
+      return isCanvasVisible && isTabVisible && !isCurtainBlocking;
     }
 
     function stop() {
@@ -92,11 +104,8 @@ export const WaveformCanvas: React.FC = () => {
       }
     }
 
-    function draw() {
-      if (!ctx || !shouldAnimate()) {
-        animationFrameId = null;
-        return;
-      }
+    function drawFrame() {
+      if (!ctx) return;
 
       ctx.clearRect(0, 0, width, height);
 
@@ -160,6 +169,14 @@ export const WaveformCanvas: React.FC = () => {
       }
 
       time += 0.01;
+    }
+
+    function draw() {
+      if (!shouldAnimate()) {
+        animationFrameId = null;
+        return;
+      }
+      drawFrame();
       animationFrameId = requestAnimationFrame(draw);
     }
 
@@ -182,12 +199,24 @@ export const WaveformCanvas: React.FC = () => {
       else stop();
     };
 
+    const onCurtainOpening = () => {
+      isCurtainBlocking = false;
+      start();
+    };
+
     document.addEventListener('visibilitychange', onVisibilityChange);
-    start();
+    drawFrame();
+    if (isCurtainBlocking) {
+      window.addEventListener('academic-intro-curtain-opening', onCurtainOpening, { once: true });
+    } else {
+      start();
+    }
 
     return () => {
       stop();
+      window.removeEventListener('academic-intro-curtain-opening', onCurtainOpening);
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('scroll', updateRect);
       document.removeEventListener('visibilitychange', onVisibilityChange);
       if (parent) {
         parent.removeEventListener('mousemove', onMouseMove);
