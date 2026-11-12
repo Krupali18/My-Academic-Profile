@@ -50,7 +50,7 @@ export default {
         },
       },
       fontFamily: {
-        primary: ['Montserrat', 'Montserrat Fallback', 'Helvetica', 'Arial', 'sans-serif'],
+        primary: ['Montserrat', 'Helvetica', 'Arial', 'sans-serif'],
         dancing: ["'Dancing Script'", 'cursive'],
         satisfy: ["'Satisfy'", 'cursive'],
         mono: ["'JetBrains Mono'", 'monospace', 'Consolas', 'sans-serif'],
