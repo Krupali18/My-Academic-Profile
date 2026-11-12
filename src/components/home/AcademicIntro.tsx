@@ -57,6 +57,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       }
       document.body.style.removeProperty('overflow');
       onComplete?.();
+      window.dispatchEvent(new CustomEvent('academic-intro-curtain-opening'));
       return;
     }
 
@@ -93,6 +94,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
     let xPoints: number[] = [];
     let envelopes: number[] = [];
     let baseFreqs: number[] = [];
+    let cachedZone = { left: 0, right: 0, top: 0, bottom: 0, cx: 0, cy: 0 };
 
     function getExclusionZone() {
       if (!identityRef.current) return { left: 0, right: 0, top: 0, bottom: 0, cx: 0, cy: 0 };
@@ -123,6 +125,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       canvas.width = canvasW * dpr;
       canvas.height = canvasH * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cachedZone = getExclusionZone();
 
       xPoints = [];
       envelopes = [];
@@ -203,7 +206,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       }
 
       const warpFactor = animState.warp;
-      const zone = getExclusionZone();
+      const zone = cachedZone;
 
       // ── 1. 3D Metamaterial Acoustic Waveform ──────────────────────────────
       if (animState.waveAlpha > 0.005 && xPoints.length > 0) {
@@ -279,6 +282,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
 
       // ── 2. Neural Constellation & Synaptic Mesh ───────────────────────────
       const maxDist = 180;
+      const maxDistSq = maxDist * maxDist;
       const activeLinks: Array<{ a: NeuralNode; b: NeuralNode }> = [];
 
       for (let i = 0; i < nodes.length; i++) {
@@ -306,16 +310,17 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         if (isMouseActive) {
           const mdx = a.x - mouseX;
           const mdy = a.y - mouseY;
-          const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+          const mDistSq = mdx * mdx + mdy * mdy;
 
-          if (mdist < 160) {
-            const factor = 1 - mdist / 160;
-            a.currentRadius = a.radius + factor * 2.2;
-          } else {
-            a.currentRadius += (a.radius - a.currentRadius) * 0.1;
-          }
+          if (mDistSq < 36100) {
+            const mdist = Math.sqrt(mDistSq);
+            if (mdist < 160) {
+              const factor = 1 - mdist / 160;
+              a.currentRadius = a.radius + factor * 2.2;
+            } else {
+              a.currentRadius += (a.radius - a.currentRadius) * 0.1;
+            }
 
-          if (mdist < 190) {
             const mAlpha = (1 - mdist / 190) * 0.6;
             ctx.beginPath();
             ctx.moveTo(mouseX, mouseY);
@@ -323,6 +328,8 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
             ctx.strokeStyle = `rgba(59, 130, 246, ${mAlpha})`;
             ctx.lineWidth = 1.1;
             ctx.stroke();
+          } else {
+            a.currentRadius += (a.radius - a.currentRadius) * 0.1;
           }
         } else {
           a.currentRadius += (a.radius - a.currentRadius) * 0.1;
@@ -332,9 +339,10 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
           const b = nodes[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < maxDist) {
+          if (distSq < maxDistSq) {
+            const dist = Math.sqrt(distSq);
             const norm = 1 - dist / maxDist;
             const alpha = Math.max(0, (0.05 + 0.32 * norm) * (1 - warpFactor * 0.85));
 
@@ -374,14 +382,16 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         const sx = sig.from.x + (sig.to.x - sig.from.x) * sig.progress;
         const sy = sig.from.y + (sig.to.y - sig.from.y) * sig.progress;
 
-        ctx.save();
+        // Glow halo without expensive per-frame shadowBlur Gaussian filter
+        ctx.beginPath();
+        ctx.arc(sx, sy, 5.2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.32)';
+        ctx.fill();
+
         ctx.beginPath();
         ctx.arc(sx, sy, 2.4, 0, Math.PI * 2);
         ctx.fillStyle = '#ffffff';
-        ctx.shadowColor = '#3B82F6';
-        ctx.shadowBlur = 10;
         ctx.fill();
-        ctx.restore();
       }
 
       // ── 4. Render Metamaterial Nodes ──
@@ -391,13 +401,13 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         const r = n.currentRadius || n.radius;
 
         // Outer soft glow halo
+        ctx.globalAlpha = 1;
         ctx.beginPath();
         ctx.arc(n.x, n.y, r * 2.2, 0, Math.PI * 2);
         ctx.fillStyle = `${n.color}1a`;
         ctx.fill();
 
         // Main body
-        ctx.save();
         ctx.globalAlpha = 0.75 * nodeAlpha;
         ctx.beginPath();
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
@@ -410,8 +420,8 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         ctx.arc(n.x - r * 0.25, n.y - r * 0.25, r * 0.35, 0, Math.PI * 2);
         ctx.fillStyle = '#ffffff';
         ctx.fill();
-        ctx.restore();
       }
+      ctx.globalAlpha = 1;
 
       animFrameId = requestAnimationFrame(renderCanvasScene);
     }
@@ -499,6 +509,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       }
 
       if (onComplete) onComplete();
+      window.dispatchEvent(new CustomEvent('academic-intro-curtain-opening'));
     }
 
     // ── Main Continuous FLIP Morph Sequence ──────────────────────────────
@@ -671,6 +682,9 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
       );
 
       // 5. Background Curtain: Silky-smooth aperture cross-fade
+      tl.add(() => {
+        window.dispatchEvent(new CustomEvent('academic-intro-curtain-opening'));
+      }, 'going+=0.70');
       tl.to(
         curtain,
         {
@@ -877,6 +891,7 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
             if (preloaderRef.current) {
               preloaderRef.current.style.display = 'none';
             }
+            window.dispatchEvent(new CustomEvent('academic-intro-curtain-opening'));
             const brand = document.getElementById('site-nav-brand');
             if (brand) brand.style.opacity = '1';
             if (onComplete) onComplete();
