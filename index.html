@@ -29,8 +29,15 @@
     <link rel="preconnect" href="https://formspree.io" crossorigin />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
-    <!-- Preload LCP hero portrait image with high fetchpriority -->
-    <link rel="preload" as="image" href="/assets/genratedd-2.webp" type="image/webp" fetchpriority="high" />
+    <!-- Preload LCP hero portrait image with responsive AVIF srcset and high fetchpriority -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset="/assets/genratedd-2-400w.avif 400w, /assets/genratedd-2-600w.avif 600w"
+      imagesizes="(max-width: 320px) 135px, (max-width: 768px) 180px, 280px"
+      fetchpriority="high"
+    />
 
     <!-- Open Graph Defaults (homepage) -->
     <meta property="og:type" content="profile" />
