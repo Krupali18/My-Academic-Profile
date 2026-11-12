@@ -1,12 +1,44 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
+
+/**
+ * Injects <link rel="preload" as="font"> tags for the 2 critical above-the-fold
+ * Latin Montserrat WOFF2 weights so they start downloading before CSS is parsed.
+ */
+function preloadCriticalFontsPlugin(): Plugin {
+  return {
+    name: 'preload-critical-fonts',
+    enforce: 'post',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html, ctx) {
+        if (!ctx.bundle) return html;
+        const criticalPatterns = [
+          /montserrat-latin-400-normal-[^/]+\.woff2$/,
+          /montserrat-latin-700-normal-[^/]+\.woff2$/,
+        ];
+        const links: string[] = [];
+        for (const fileName of Object.keys(ctx.bundle)) {
+          if (criticalPatterns.some((re) => re.test(fileName))) {
+            links.push(
+              `    <link rel="preload" as="font" type="font/woff2" crossorigin href="/${fileName}" />`
+            );
+          }
+        }
+        if (links.length === 0) return html;
+        return html.replace('</head>', `${links.join('\n')}\n  </head>`);
+      },
+    },
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    preloadCriticalFontsPlugin(),
     ...(process.env.ANALYZE === 'true'
       ? [
           visualizer({
