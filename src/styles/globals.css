@@ -11,16 +11,6 @@
 @import '@fontsource/dancing-script/latin-600.css';
 @import '@fontsource/dancing-script/latin-700.css';
 
-/* Metric-matched fallback for Montserrat to eliminate webfont-swap layout shift (CLS) */
-@font-face {
-  font-family: 'Montserrat Fallback';
-  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
-  size-adjust: 113.1%;
-  ascent-override: 85.6%;
-  descent-override: 22.2%;
-  line-gap-override: 0%;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,7 +50,7 @@
   --text-light: #707070;
   --bg-light: #F4F4F4;
   --bg-warm: #faf8f5;
-  --font-primary: 'Montserrat', 'Montserrat Fallback', Helvetica, Arial, sans-serif;
+  --font-primary: 'Montserrat', Helvetica, Arial, sans-serif;
   --transition-speed: 0.18s;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -6760,8 +6750,8 @@ img {
   --stack-border-hover: #002E5D;
   --stack-shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 10px 24px -3px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
   --stack-shadow-hover: 0 20px 36px -6px rgba(0, 46, 93, 0.22), 0 8px 16px -2px rgba(0, 46, 93, 0.1), 0 0 0 1.5px #002E5D;
-  --stack-font-display: 'Montserrat', 'Montserrat Fallback', sans-serif;
-  --stack-font-sans: 'Montserrat', 'Montserrat Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
+  --stack-font-display: 'Montserrat', sans-serif;
+  --stack-font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   --stack-font-mono: 'JetBrains Mono', monospace, Consolas, sans-serif;
   --stack-font-cursive: 'Dancing Script', 'Satisfy', 'Alex Brush', 'Brush Script MT', 'Lucida Handwriting', cursive;
 }
