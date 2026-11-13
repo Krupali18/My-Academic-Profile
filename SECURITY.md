@@ -18,3 +18,4 @@ Please include:
 - Repository and static build infrastructure.
 
 We will acknowledge receipt within 48 hours and work to validate and remediate valid findings promptly.
+
