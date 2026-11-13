@@ -207,8 +207,10 @@ Simulated HTTP `GET` requests with crawler `User-Agent` headers against core ent
 ## 5. "What Visitors Can Still Do" — Technical Honesty Disclosure
 
 In accordance with web security best practices and fundamental browser mechanics:
+> *"Visitors can still save images they can view; these measures stop hotlinking, reduce scraping, and lower the value of copies."*
+
 1. **Any image viewed in a browser can be saved**:
-   - While `draggable="false"` and `user-select: none` stop casual dragging to the desktop, any user with browser Developer Tools (F12) can open the Network tab, inspect the DOM element, view the cache, or take a screen capture to obtain the image file.
+   - While `draggable="false"`, `user-select: none`, and `-webkit-touch-callout: none` stop casual dragging and iOS long-press saving, any user with browser Developer Tools (F12) can open the Network tab, inspect the DOM element, view the cache, or take a screen capture to obtain the image file.
 2. **Minified client JavaScript is public**:
    - All production client-side code delivered to the browser is public. However, because source maps (`.map`) and development files are excluded from `dist/`, reverse engineering original variable names or architecture requires substantial effort.
 3. **Hotlinking protection requires DNS/WAF level enforcement**:
@@ -216,7 +218,21 @@ In accordance with web security best practices and fundamental browser mechanics
 
 ---
 
-## 6. Tier 3: External Dashboard & Manual Setup Steps
+## 6. Tier 3: External Dashboard, Manual Setup & Approval Registry
+
+### Tier 3 Evaluated Measures (Trade-offs & Recommendations)
+Per `SEC_03_ASSET_PROTECTION.md` §6, these measures were evaluated and intentionally deferred or left for user configuration:
+
+| Measure | Benefit | Cost / Trade-off / Risk | Status |
+| :--- | :--- | :--- | :---: |
+| **Cloudflare WAF Anti-Hotlinking** | Real edge block of foreign embedding | Requires Cloudflare DNS proxy (manual setup) | **Recommended (steps below)** |
+| **Visible / Invisible Watermark** | Strongest "less valuable when stolen" measure | Visibly alters clean academic portfolio aesthetics | **Not Implemented (preserves design)** |
+| **Lower-resolution Web Versions** | Stolen copy has degraded resolution | Blurry on high-DPI Retina/4K screens | **Not Implemented (sharpness preserved)** |
+| **CDN Rate Limiting (IP Caps)** | Slows down automated bulk image downloaders | Risk of throttling classroom/campus IPs | **Deferred to Cloudflare WAF** |
+| **CORP (`Cross-Origin-Resource-Policy`)** | Header-only anti-hotlink on static hosts | **High Risk**: Blocks Google/Bing image preview panels | **Rejected (preserves Image SEO)** |
+| **Right-Click Blocking Scripts** | Prevents casual right-click context menu | Degrades accessibility; trivial to bypass; annoying | **Rejected (accessibility guardrail)** |
+| **Hashed Bundler Image URLs** | Better cache-busting, unguessable paths | **High Risk**: Breaks indexing on frozen image URLs | **Rejected (SEO URLs preserved)** |
+| **Signed / Expiring URLs** | Cryptographic download expiration | Breaks static hosting, SSR/edge required, breaks crawlers | **Rejected (static architecture)** |
 
 ### Step 1: Cloudflare WAF Hotlink Protection Rule (Recommended)
 If your domain is routed through Cloudflare DNS (proxy orange cloud active):
@@ -225,12 +241,20 @@ If your domain is routed through Cloudflare DNS (proxy orange cloud active):
 3. Name: `Block Image Hotlinking`.
 4. Field / Expression Editor:
    ```text
-   (http.request.uri.path matches "^/assets/.*\.(webp|avif|png|jpg|jpeg|svg)$" and
-    not http.referer contains "krupalidonda.com" and
-    not http.referer contains "google." and
-    not http.referer contains "bing." and
-    not http.referer contains "linkedin." and
-    not http.referer eq "")
+   (
+     http.request.uri.path.extension in {"jpg" "jpeg" "png" "webp" "avif" "gif" "svg" "mp4" "webm"}
+     and http.referer ne ""
+     and not http.referer contains "krupalidonda.com"
+     and not http.referer contains "google."
+     and not http.referer contains "bing.com"
+     and not http.referer contains "duckduckgo.com"
+     and not http.referer contains "yahoo."
+     and not http.referer contains "yandex."
+     and not http.referer contains "baidu.com"
+     and not http.referer contains "ecosia.org"
+     and not http.referer contains "search.brave.com"
+     and not cf.client.bot
+   )
    ```
 5. Action: **Block** (or **Managed Challenge**).
 6. Click **Deploy**.
