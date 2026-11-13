@@ -65,7 +65,7 @@ The production header policy in `vercel.json` was updated to achieve an **A+** p
     { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
     {
       "key": "Strict-Transport-Security",
-      "value": "max-age=63072000; includeSubDomains; preload"
+      "value": "max-age=31536000; includeSubDomains"
     },
     {
       "key": "Cross-Origin-Opener-Policy",
@@ -256,3 +256,4 @@ If your domain is routed through Cloudflare DNS (proxy orange cloud active):
 ---
 
 **Report Certification**: All security hardening requirements from `security/SEC_01` through `security/SEC_05` have been implemented, verified, and audited with **zero visual regressions, zero accessibility degradation, zero SEO loss, and improved performance**.
+
