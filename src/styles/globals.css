@@ -73,6 +73,12 @@ html {
   scroll-padding-top: 70px;
 }
 
+/* Security / Asset Protection: Deter casual image drag without interfering with interactions or text selection */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
 body {
   font-family: var(--font-primary);
   color: var(--text-dark);

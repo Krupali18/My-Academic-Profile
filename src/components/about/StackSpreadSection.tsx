@@ -497,6 +497,7 @@ export const StackSpreadSection: React.FC = () => {
                     alt={card.title ? `${card.title} — personal archive photo` : `Personal archive photo ${index + 1}`}
                     loading="lazy"
                     decoding="async"
+                    draggable="false"
                   />
                   <div className="stack-card-shade" />
                   <div className="stack-card-zoom-top" aria-hidden="true">
@@ -560,6 +561,7 @@ export const StackSpreadSection: React.FC = () => {
                 id="stackLightboxImg"
                 src={CARDS_DATA[activeModalIndex].modalSrc || CARDS_DATA[activeModalIndex].src}
                 alt={CARDS_DATA[activeModalIndex].title || 'Photo preview'}
+                draggable="false"
               />
               <button
                 type="button"

@@ -16,6 +16,7 @@ export const HonorsFeatureGrid: React.FC = () => {
               alt="META 2026 Conference Presentation supported by ANRF International Travel Support Grant"
               decoding="async"
               loading="lazy"
+              draggable="false"
               width={480}
               height={320}
             />
@@ -71,6 +72,7 @@ export const HonorsFeatureGrid: React.FC = () => {
               alt="Acoustical Society of America — JASA publication abstract for Dr. Krupali Donda"
               decoding="async"
               loading="lazy"
+              draggable="false"
               width={480}
               height={320}
             />
@@ -122,6 +124,7 @@ export const HonorsFeatureGrid: React.FC = () => {
               alt="Dr. Krupali Donda at the Indian Institute of Technology Delhi campus"
               decoding="async"
               loading="lazy"
+              draggable="false"
               width={480}
               height={320}
             />

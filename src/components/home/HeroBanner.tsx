@@ -28,6 +28,7 @@ export const HeroBanner: React.FC = () => {
               decoding="async"
               loading="eager"
               fetchPriority="high"
+              draggable="false"
               width={280}
               height={380}
             />
