@@ -9,6 +9,8 @@
     "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "esModuleInterop": true,
+    "types": ["node"],
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
