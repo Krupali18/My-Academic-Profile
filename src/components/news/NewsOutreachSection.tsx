@@ -100,6 +100,7 @@ export const NewsOutreachSection: React.FC = () => {
                   alt="Dr. Krupali Donda presenting research at META 2026, Trinity College Dublin, Ireland"
                   decoding="async"
                   loading="lazy"
+                  draggable="false"
                 />
               </picture>
             </div>
@@ -149,6 +150,7 @@ export const NewsOutreachSection: React.FC = () => {
                 alt="Artificial Intelligence and Machine Learning in Laboratory Medicine — Invited talk by Dr. Krupali Donda for ICMR, organized by QCI"
                 decoding="async"
                 loading="lazy"
+                draggable="false"
               />
             </div>
             <p className="honors-caption">
@@ -201,6 +203,7 @@ export const NewsOutreachSection: React.FC = () => {
                 alt="Dr. Krupali Donda delivering an invited expert talk at Capestone Connect 6.0, RIAC, SVNIT Surat"
                 decoding="async"
                 loading="lazy"
+                draggable="false"
               />
             </div>
             <p className="honors-caption">

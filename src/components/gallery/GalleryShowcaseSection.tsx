@@ -128,6 +128,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                   className="showcase-img"
                   loading={idx === 0 ? 'eager' : 'lazy'}
                   decoding="async"
+                  draggable="false"
                 />
                 <div className="showcase-zoom-hint" aria-hidden="true" title="Click to expand">
                   <svg
@@ -184,7 +185,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                 aria-label={`Show Photo ${idx + 1}`}
                 onClick={() => setCurrentIndex(idx)}
               >
-                <img src={photo.src} alt={`Photo ${idx + 1}`} loading="lazy" style={{ objectPosition: photo.objectPosition }} />
+                <img src={photo.src} alt={`Photo ${idx + 1}`} loading="lazy" draggable="false" style={{ objectPosition: photo.objectPosition }} />
               </button>
             ))}
           </div>
@@ -231,6 +232,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                 alt={showcasePhotos[lightboxIndex]?.alt || 'Gallery photo'}
                 className="lightbox-main-img"
                 id="lightbox-img"
+                draggable="false"
               />
             </div>
             <button
@@ -254,7 +256,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                   onClick={() => setLightboxIndex(i)}
                   aria-label={`Jump to slide ${i + 1}`}
                 >
-                  <img src={photo.src} alt={`Thumb ${i + 1}`} />
+                  <img src={photo.src} alt={`Thumb ${i + 1}`} draggable="false" />
                 </button>
               ))}
             </div>
