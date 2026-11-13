@@ -269,7 +269,11 @@ If your domain is routed through Cloudflare DNS (proxy orange cloud active):
 ## 7. Git Commit Changelog
 
 ```
-* a8e58b4 (HEAD -> security/hardening) security: add casual drag deterrents to images and user-select reset
+* b06befd (HEAD -> security/hardening) security: enforce SEC_04 supply chain, source map lock, dependabot, and security.txt
+* 43cb17b security: add touch callout deterrent to images and complete Tier 3 asset registry in report
+* a25af8b security: align HSTS max-age to 31536000 and omit preload per SEC_02
+* 44e6ef2 docs(security): add comprehensive SECURITY_REPORT.md deliverable with zero-regression proofs
+* a8e58b4 security: add casual drag deterrents to images and user-select reset
 * 175e945 security: configure Tier 1 security headers and enforce Content-Security-Policy in vercel.json
 * fb65101 chore(ts): enable esModuleInterop and node types in root tsconfig, use node:path in vite.config.ts
 * d61f81e (perf/optimization) docs: add exact line-by-line CODE_CHANGES.md performance diff reference
