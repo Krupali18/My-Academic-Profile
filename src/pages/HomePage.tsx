@@ -35,13 +35,11 @@ export const HomePage: React.FC = () => {
         <meta name="twitter:description" content={seo.twitterDescription} />
         <meta name="twitter:image" content={seo.twitterImage} />
         {seo.ogImageAlt && <meta name="twitter:image:alt" content={seo.ogImageAlt} />}
-        {/* JSON-LD: must use dangerouslySetInnerHTML — JSX children not supported in Helmet scripts */}
+        {/* JSON-LD Structured Data: react-helmet-async expects string children */}
         {(Array.isArray(seo.jsonLd) ? seo.jsonLd : seo.jsonLd ? [seo.jsonLd] : []).map((item, i) => (
-          <script
-            key={i}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
-          />
+          <script key={i} type="application/ld+json">
+            {JSON.stringify(item)}
+          </script>
         ))}
       </Helmet>
 
