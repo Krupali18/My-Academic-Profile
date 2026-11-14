@@ -9,9 +9,8 @@ interface PageSeoHelmetProps {
 /**
  * PageSeoHelmet — Renders all required SEO meta tags for a page in one place.
  *
- * CRITICAL: react-helmet-async requires dangerouslySetInnerHTML for <script> content.
- * Using JSX expression children ({JSON.stringify(...)}) inside Helmet <script> tags
- * causes a silent rendering failure that prevents the entire page from mounting.
+ * NOTE: react-helmet-async manages <script type="application/ld+json"> using string
+ * children ({JSON.stringify(...)}), rendering <script data-rh="true" type="application/ld+json">...</script>.
  */
 export const PageSeoHelmet: React.FC<PageSeoHelmetProps> = ({ seo }) => {
   if (!seo) return null;
@@ -46,13 +45,11 @@ export const PageSeoHelmet: React.FC<PageSeoHelmetProps> = ({ seo }) => {
       <meta name="twitter:image" content={seo.twitterImage} />
       {seo.ogImageAlt && <meta name="twitter:image:alt" content={seo.ogImageAlt} />}
 
-      {/* JSON-LD: must use dangerouslySetInnerHTML — JSX children not supported in Helmet scripts */}
+      {/* JSON-LD Structured Data: react-helmet-async expects string children */}
       {jsonLdItems.map((item, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
-        />
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(item)}
+        </script>
       ))}
     </Helmet>
   );
