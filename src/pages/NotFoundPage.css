@@ -1,0 +1,123 @@
+.nf-wrap {
+  --nf-bg: #f7f9fd;
+  --nf-ink: #002E5D;
+  --nf-heading-color: #1f2937;
+  --nf-muted: #4b5563;
+  --nf-accent: #002E5D;
+  --nf-accent-hover: #001d3d;
+  --nf-blob: #e6eefc;
+  --nf-shadow: rgba(0, 46, 93, 0.12);
+
+  min-height: 70vh;
+  box-sizing: border-box;
+  padding: 80px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--nf-bg);
+  color: var(--nf-ink);
+  font-family: inherit;
+}
+
+.nf-wrap.nf-dark {
+  --nf-bg: #0f172a;
+  --nf-ink: #f1f5f9;
+  --nf-heading-color: #f8fafc;
+  --nf-muted: #94a3b8;
+  --nf-accent: #38bdf8;
+  --nf-accent-hover: #7dd3fc;
+  --nf-blob: #1e293b;
+  --nf-shadow: rgba(0, 0, 0, 0.35);
+}
+
+.nf-art {
+  width: min(230px, 62vw);
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.nf-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nf-code {
+  font-size: clamp(88px, 18vw, 160px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--nf-ink);
+}
+
+.nf-heading {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  margin-top: 4px;
+  color: var(--nf-heading-color);
+}
+
+.nf-text {
+  max-width: 440px;
+  margin: 16px auto 28px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--nf-muted);
+}
+
+.nf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  background: var(--nf-accent);
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 46, 93, 0.15);
+}
+
+.nf-btn:hover {
+  background: var(--nf-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 46, 93, 0.25);
+}
+
+.nf-link {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--nf-accent);
+  text-underline-offset: 3px;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.nf-link:hover {
+  color: var(--nf-accent-hover);
+}
+
+.nf-btn:focus-visible,
+.nf-link:focus-visible {
+  outline: 3px solid var(--nf-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nf-doc {
+    animation: nf-float 3.5s ease-in-out infinite;
+  }
+  @keyframes nf-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+}
