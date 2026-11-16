@@ -46,6 +46,7 @@ export const seoConfig: Record<string, PageSeoConfig> = {
         name: 'Krupali Donda',
         honorificPrefix: 'Dr.',
         jobTitle: 'Assistant Professor',
+        email: ['mailto:krupali.donda@adaniuni.ac.in', 'mailto:krupalip18@gmail.com'],
         affiliation: {
           '@type': 'EducationalOrganization',
           name: 'Adani University',
@@ -472,6 +473,7 @@ export const seoConfig: Record<string, PageSeoConfig> = {
           name: 'Krupali Donda',
           honorificPrefix: 'Dr.',
           jobTitle: 'Assistant Professor',
+          email: ['mailto:krupali.donda@adaniuni.ac.in', 'mailto:krupalip18@gmail.com'],
           worksFor: { '@type': 'EducationalOrganization', name: 'Adani University' },
           url: 'https://krupalidonda.com',
           sameAs: [
