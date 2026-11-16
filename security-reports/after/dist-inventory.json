@@ -1,0 +1,654 @@
+[
+  {
+    "file": "dist/api/health",
+    "bytes": 133
+  },
+  {
+    "file": "dist/api/health.json",
+    "bytes": 133
+  },
+  {
+    "file": "dist/apple-touch-icon.png",
+    "bytes": 13816
+  },
+  {
+    "file": "dist/assets/1723698029521.jpg",
+    "bytes": 141554
+  },
+  {
+    "file": "dist/assets/1723698029521.webp",
+    "bytes": 140938
+  },
+  {
+    "file": "dist/assets/about-gallery/card_01.jpg",
+    "bytes": 110820
+  },
+  {
+    "file": "dist/assets/about-gallery/card_02.jpg",
+    "bytes": 165349
+  },
+  {
+    "file": "dist/assets/about-gallery/card_03.jpg",
+    "bytes": 309083
+  },
+  {
+    "file": "dist/assets/about-gallery/card_04.jpg",
+    "bytes": 61050
+  },
+  {
+    "file": "dist/assets/about-gallery/card_05.jpg",
+    "bytes": 96046
+  },
+  {
+    "file": "dist/assets/about-gallery/card_06.jpg",
+    "bytes": 207773
+  },
+  {
+    "file": "dist/assets/about-gallery/card_07.jpg",
+    "bytes": 129584
+  },
+  {
+    "file": "dist/assets/about-gallery/card_08.jpg",
+    "bytes": 111939
+  },
+  {
+    "file": "dist/assets/about-gallery/card_09.jpg",
+    "bytes": 175012
+  },
+  {
+    "file": "dist/assets/about-gallery/card_10.jpg",
+    "bytes": 111111
+  },
+  {
+    "file": "dist/assets/about-gallery/card_11.jpg",
+    "bytes": 104110
+  },
+  {
+    "file": "dist/assets/about-gallery/card_12.jpg",
+    "bytes": 109817
+  },
+  {
+    "file": "dist/assets/about-gallery/card_13.jpg",
+    "bytes": 99826
+  },
+  {
+    "file": "dist/assets/about-gallery/card_14.jpg",
+    "bytes": 117171
+  },
+  {
+    "file": "dist/assets/about-gallery/card_15.jpg",
+    "bytes": 138681
+  },
+  {
+    "file": "dist/assets/about-gallery/card_16.jpg",
+    "bytes": 71451
+  },
+  {
+    "file": "dist/assets/about-gallery/card_17.jpg",
+    "bytes": 103240
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_01.jpg",
+    "bytes": 165768
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_02.jpg",
+    "bytes": 582820
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_03.jpg",
+    "bytes": 1291655
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_04.jpg",
+    "bytes": 65757
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_05.jpg",
+    "bytes": 349210
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_06.jpg",
+    "bytes": 814159
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_07.jpg",
+    "bytes": 221131
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_08.jpg",
+    "bytes": 512018
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_09.jpg",
+    "bytes": 694967
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_10.jpg",
+    "bytes": 474234
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_11.jpg",
+    "bytes": 414335
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_12.jpg",
+    "bytes": 504554
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_13.jpg",
+    "bytes": 669127
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_14.jpg",
+    "bytes": 755393
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_15.jpg",
+    "bytes": 339100
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_16.jpg",
+    "bytes": 146726
+  },
+  {
+    "file": "dist/assets/about-gallery/modal_17.jpg",
+    "bytes": 227706
+  },
+  {
+    "file": "dist/assets/ADANI.jpg",
+    "bytes": 42132
+  },
+  {
+    "file": "dist/assets/ADANI.webp",
+    "bytes": 42668
+  },
+  {
+    "file": "dist/assets/ai in medical.jfif",
+    "bytes": 65325
+  },
+  {
+    "file": "dist/assets/analytics-bcE3i3YV.js",
+    "bytes": 8996
+  },
+  {
+    "file": "dist/assets/ANRF International Travel Support Grant.jpeg",
+    "bytes": 182373
+  },
+  {
+    "file": "dist/assets/ANRF International Travel Support Grant.webp",
+    "bytes": 164090
+  },
+  {
+    "file": "dist/assets/ASA ASJ.png",
+    "bytes": 34411
+  },
+  {
+    "file": "dist/assets/ASA ASJ.webp",
+    "bytes": 15626
+  },
+  {
+    "file": "dist/assets/ASA.pdf",
+    "bytes": 4359144
+  },
+  {
+    "file": "dist/assets/ashish.png",
+    "bytes": 1871648
+  },
+  {
+    "file": "dist/assets/ashish.webp",
+    "bytes": 96326
+  },
+  {
+    "file": "dist/assets/bg image .jpg",
+    "bytes": 425840
+  },
+  {
+    "file": "dist/assets/bg image .webp",
+    "bytes": 140628
+  },
+  {
+    "file": "dist/assets/bg-image.jpg",
+    "bytes": 366736
+  },
+  {
+    "file": "dist/assets/bg-image.webp",
+    "bytes": 118458
+  },
+  {
+    "file": "dist/assets/chunk-gsap-B5Zr7YxL.js",
+    "bytes": 70343
+  },
+  {
+    "file": "dist/assets/chunk-utils-DeRmtv56.js",
+    "bytes": 20256
+  },
+  {
+    "file": "dist/assets/chunk-vendor-lGiWieUN.js",
+    "bytes": 164220
+  },
+  {
+    "file": "dist/assets/dancing-script-latin-600-normal-8nA_0nHX.woff",
+    "bytes": 31184
+  },
+  {
+    "file": "dist/assets/dancing-script-latin-600-normal-CUtcW3hj.woff2",
+    "bytes": 25940
+  },
+  {
+    "file": "dist/assets/dancing-script-latin-700-normal-CX8AaSVl.woff2",
+    "bytes": 25444
+  },
+  {
+    "file": "dist/assets/dancing-script-latin-700-normal-LI5MgW9m.woff",
+    "bytes": 30632
+  },
+  {
+    "file": "dist/assets/deep-learning-approach.png",
+    "bytes": 1896760
+  },
+  {
+    "file": "dist/assets/deep-learning-approach.webp",
+    "bytes": 155126
+  },
+  {
+    "file": "dist/assets/dev-sanghvi.jfif",
+    "bytes": 20364
+  },
+  {
+    "file": "dist/assets/extreme-low-frequency.jpg",
+    "bytes": 53541
+  },
+  {
+    "file": "dist/assets/extreme-low-frequency.webp",
+    "bytes": 26680
+  },
+  {
+    "file": "dist/assets/faculty-mentor-2.jpg",
+    "bytes": 1243525
+  },
+  {
+    "file": "dist/assets/faculty-mentor-2.webp",
+    "bytes": 602032
+  },
+  {
+    "file": "dist/assets/faculty-mentor-cropped.jpg",
+    "bytes": 472721
+  },
+  {
+    "file": "dist/assets/faculty-mentor-cropped.webp",
+    "bytes": 200576
+  },
+  {
+    "file": "dist/assets/gallary/image 1.jpeg",
+    "bytes": 82573
+  },
+  {
+    "file": "dist/assets/gallary/image 2.jpeg",
+    "bytes": 220256
+  },
+  {
+    "file": "dist/assets/gallary/image 3.jpg",
+    "bytes": 240222
+  },
+  {
+    "file": "dist/assets/gallary/image 4.jpeg",
+    "bytes": 378681
+  },
+  {
+    "file": "dist/assets/gallary/image 5.jpeg",
+    "bytes": 163858
+  },
+  {
+    "file": "dist/assets/genratedd-2-400w.avif",
+    "bytes": 9763
+  },
+  {
+    "file": "dist/assets/genratedd-2-400w.webp",
+    "bytes": 9398
+  },
+  {
+    "file": "dist/assets/genratedd-2-600w.avif",
+    "bytes": 19452
+  },
+  {
+    "file": "dist/assets/genratedd-2-600w.webp",
+    "bytes": 18866
+  },
+  {
+    "file": "dist/assets/genratedd-2.png",
+    "bytes": 2406042
+  },
+  {
+    "file": "dist/assets/genratedd-2.webp",
+    "bytes": 63154
+  },
+  {
+    "file": "dist/assets/genratedd.webp",
+    "bytes": 94798
+  },
+  {
+    "file": "dist/assets/hit-vekariya.jpg",
+    "bytes": 48874
+  },
+  {
+    "file": "dist/assets/hit-vekariya.webp",
+    "bytes": 33380
+  },
+  {
+    "file": "dist/assets/iit delhi.jpg",
+    "bytes": 1785776
+  },
+  {
+    "file": "dist/assets/iit delhi.webp",
+    "bytes": 889216
+  },
+  {
+    "file": "dist/assets/image-to-response-learningdiagram.png",
+    "bytes": 113419
+  },
+  {
+    "file": "dist/assets/image-to-response-learningdiagram.webp",
+    "bytes": 29944
+  },
+  {
+    "file": "dist/assets/IMG_1651.jpg",
+    "bytes": 2066165
+  },
+  {
+    "file": "dist/assets/IMG_1651.webp",
+    "bytes": 610382
+  },
+  {
+    "file": "dist/assets/IMG_5074.jpg",
+    "bytes": 1853326
+  },
+  {
+    "file": "dist/assets/IMG_5074.webp",
+    "bytes": 726522
+  },
+  {
+    "file": "dist/assets/index-Bbak6oVt.js",
+    "bytes": 149986
+  },
+  {
+    "file": "dist/assets/index-CAhQxgGX.css",
+    "bytes": 120738
+  },
+  {
+    "file": "dist/assets/jetbrains-mono-latin-400-normal-6-qcROiO.woff",
+    "bytes": 27496
+  },
+  {
+    "file": "dist/assets/jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+    "bytes": 21168
+  },
+  {
+    "file": "dist/assets/kishlay ojha.jpeg",
+    "bytes": 93449
+  },
+  {
+    "file": "dist/assets/kishlay ojha.webp",
+    "bytes": 72582
+  },
+  {
+    "file": "dist/assets/logo.webp",
+    "bytes": 37280
+  },
+  {
+    "file": "dist/assets/man alpahara.jpeg",
+    "bytes": 87551
+  },
+  {
+    "file": "dist/assets/man alpahara.webp",
+    "bytes": 55574
+  },
+  {
+    "file": "dist/assets/mann alpahara.jpeg",
+    "bytes": 426956
+  },
+  {
+    "file": "dist/assets/mann alpahara.webp",
+    "bytes": 142676
+  },
+  {
+    "file": "dist/assets/moksh shah.jpeg",
+    "bytes": 148741
+  },
+  {
+    "file": "dist/assets/moksh shah.webp",
+    "bytes": 120220
+  },
+  {
+    "file": "dist/assets/montserrat-latin-300-normal-BgP24wlQ.woff2",
+    "bytes": 18708
+  },
+  {
+    "file": "dist/assets/montserrat-latin-300-normal-sTRdVzlf.woff",
+    "bytes": 20704
+  },
+  {
+    "file": "dist/assets/montserrat-latin-400-italic-a0UhtteB.woff",
+    "bytes": 21336
+  },
+  {
+    "file": "dist/assets/montserrat-latin-400-italic-CnlIvBC9.woff2",
+    "bytes": 19260
+  },
+  {
+    "file": "dist/assets/montserrat-latin-400-normal-BLhwKU8k.woff2",
+    "bytes": 18780
+  },
+  {
+    "file": "dist/assets/montserrat-latin-400-normal-xItZbAXg.woff",
+    "bytes": 20648
+  },
+  {
+    "file": "dist/assets/montserrat-latin-500-normal-Dok2oTci.woff",
+    "bytes": 20608
+  },
+  {
+    "file": "dist/assets/montserrat-latin-500-normal-DRFEGfly.woff2",
+    "bytes": 18748
+  },
+  {
+    "file": "dist/assets/montserrat-latin-600-normal-CdhFl4lI.woff",
+    "bytes": 20548
+  },
+  {
+    "file": "dist/assets/montserrat-latin-600-normal-UVxSCcoG.woff2",
+    "bytes": 18688
+  },
+  {
+    "file": "dist/assets/montserrat-latin-700-normal-BdjcYUrC.woff2",
+    "bytes": 18824
+  },
+  {
+    "file": "dist/assets/montserrat-latin-700-normal-BWkrl476.woff",
+    "bytes": 20672
+  },
+  {
+    "file": "dist/assets/montserrat-latin-800-normal-axpkC1rd.woff2",
+    "bytes": 19012
+  },
+  {
+    "file": "dist/assets/montserrat-latin-800-normal-C3dfDxXV.woff",
+    "bytes": 20660
+  },
+  {
+    "file": "dist/assets/naimish-bhuva.jpg",
+    "bytes": 23065
+  },
+  {
+    "file": "dist/assets/naimish-bhuva.webp",
+    "bytes": 10236
+  },
+  {
+    "file": "dist/assets/orignal.JPG",
+    "bytes": 1903627
+  },
+  {
+    "file": "dist/assets/orignal.webp",
+    "bytes": 354988
+  },
+  {
+    "file": "dist/assets/pankit-brahmkhatri.png",
+    "bytes": 836030
+  },
+  {
+    "file": "dist/assets/pankit-brahmkhatri.webp",
+    "bytes": 71760
+  },
+  {
+    "file": "dist/assets/priya narein.jpeg",
+    "bytes": 137000
+  },
+  {
+    "file": "dist/assets/priya narein.webp",
+    "bytes": 57816
+  },
+  {
+    "file": "dist/assets/priya shah.jpeg",
+    "bytes": 41937
+  },
+  {
+    "file": "dist/assets/priya shah.webp",
+    "bytes": 26050
+  },
+  {
+    "file": "dist/assets/research meta.jpg",
+    "bytes": 2634327
+  },
+  {
+    "file": "dist/assets/research meta.webp",
+    "bytes": 1351996
+  },
+  {
+    "file": "dist/assets/research-meta-opt.webp",
+    "bytes": 322610
+  },
+  {
+    "file": "dist/assets/rudrani joshi.jpeg",
+    "bytes": 73206
+  },
+  {
+    "file": "dist/assets/rudrani joshi.webp",
+    "bytes": 27414
+  },
+  {
+    "file": "dist/assets/svnit-expert-talk.jpg",
+    "bytes": 790772
+  },
+  {
+    "file": "dist/assets/svnit-expert-talk.webp",
+    "bytes": 326474
+  },
+  {
+    "file": "dist/assets/title-logo.png",
+    "bytes": 81146
+  },
+  {
+    "file": "dist/assets/vansh-sharma.jpeg",
+    "bytes": 29243
+  },
+  {
+    "file": "dist/assets/vansh-sharma.svg",
+    "bytes": 515
+  },
+  {
+    "file": "dist/assets/vansh-sharma.webp",
+    "bytes": 28754
+  },
+  {
+    "file": "dist/assets/vatsal-patel.jpg",
+    "bytes": 95210
+  },
+  {
+    "file": "dist/assets/vatsal-patel.webp",
+    "bytes": 61446
+  },
+  {
+    "file": "dist/assets/vimi-patel.jpeg",
+    "bytes": 40378
+  },
+  {
+    "file": "dist/assets/vimi-patel.jpg",
+    "bytes": 40378
+  },
+  {
+    "file": "dist/assets/vimi-patel.webp",
+    "bytes": 23242
+  },
+  {
+    "file": "dist/assets/web-page-usade.jpg",
+    "bytes": 1333474
+  },
+  {
+    "file": "dist/assets/web-page-usade.webp",
+    "bytes": 307510
+  },
+  {
+    "file": "dist/assets/wiser-figure-dul.jpg",
+    "bytes": 968184
+  },
+  {
+    "file": "dist/assets/wiser-figure-dul.webp",
+    "bytes": 444856
+  },
+  {
+    "file": "dist/assets/wiser-figure.jpg",
+    "bytes": 1012804
+  },
+  {
+    "file": "dist/assets/wiser-figure.webp",
+    "bytes": 417334
+  },
+  {
+    "file": "dist/assets/yash-shah.jpeg",
+    "bytes": 442494
+  },
+  {
+    "file": "dist/assets/yash-shah.webp",
+    "bytes": 143824
+  },
+  {
+    "file": "dist/favicon-16x16.png",
+    "bytes": 650
+  },
+  {
+    "file": "dist/favicon-32x32.png",
+    "bytes": 1377
+  },
+  {
+    "file": "dist/favicon-96x96.png",
+    "bytes": 5600
+  },
+  {
+    "file": "dist/favicon.ico",
+    "bytes": 1399
+  },
+  {
+    "file": "dist/icon-192.png",
+    "bytes": 14989
+  },
+  {
+    "file": "dist/icon-512.png",
+    "bytes": 65822
+  },
+  {
+    "file": "dist/index.html",
+    "bytes": 6176
+  },
+  {
+    "file": "dist/manifest.json",
+    "bytes": 854
+  },
+  {
+    "file": "dist/robots.txt",
+    "bytes": 110
+  },
+  {
+    "file": "dist/sitemap.xml",
+    "bytes": 2088
+  }
+]
