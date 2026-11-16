@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useStickyHeader } from '@/hooks/useStickyHeader';
 import { useSite } from '@/context/SiteContext';
+import { prefetchRoute, type routeLoaders } from '@/App';
 
 export interface HeaderProps {
   solidOnMount?: boolean;
@@ -9,14 +10,14 @@ export interface HeaderProps {
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', end: true },
-  { to: '/about', label: 'About' },
-  { to: '/research', label: 'Research' },
-  { to: '/teaching', label: 'Teaching' },
-  { to: '/group', label: 'Group' },
-  { to: '/honors', label: 'Honours' },
-  { to: '/publications', label: 'Publications' },
-  { to: '/news-outreach', label: 'News & Outreach' },
-  { to: '/gallery', label: 'Gallery' },
+  { to: '/about', label: 'About', routeKey: 'about' as keyof typeof routeLoaders },
+  { to: '/research', label: 'Research', routeKey: 'research' as keyof typeof routeLoaders },
+  { to: '/teaching', label: 'Teaching', routeKey: 'teaching' as keyof typeof routeLoaders },
+  { to: '/group', label: 'Group', routeKey: 'group' as keyof typeof routeLoaders },
+  { to: '/honors', label: 'Honours', routeKey: 'honors' as keyof typeof routeLoaders },
+  { to: '/publications', label: 'Publications', routeKey: 'publications' as keyof typeof routeLoaders },
+  { to: '/news-outreach', label: 'News & Outreach', routeKey: 'newsOutreach' as keyof typeof routeLoaders },
+  { to: '/gallery', label: 'Gallery', routeKey: 'gallery' as keyof typeof routeLoaders },
 ];
 
 export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
@@ -126,6 +127,12 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
                     className={({ isActive }) =>
                       `ad_nav_link ${isActive ? 'active' : ''}`
                     }
+                    onMouseEnter={() => {
+                      if (item.routeKey) prefetchRoute(item.routeKey);
+                    }}
+                    onTouchStart={() => {
+                      if (item.routeKey) prefetchRoute(item.routeKey);
+                    }}
                     onClick={() => {
                       setMobileMenuOpen(false);
                       if (item.to === '/' && location.pathname === '/') {
@@ -150,6 +157,8 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
                 <NavLink
                   to="/contact"
                   className="ad_nav_link mobile-contact-link"
+                  onMouseEnter={() => prefetchRoute('contact')}
+                  onTouchStart={() => prefetchRoute('contact')}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact
@@ -159,7 +168,12 @@ export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
           </div>
 
           <div className="nav-right">
-            <Link to="/contact" className="ad_nav_link contact-btn">
+            <Link
+              to="/contact"
+              className="ad_nav_link contact-btn"
+              onMouseEnter={() => prefetchRoute('contact')}
+              onTouchStart={() => prefetchRoute('contact')}
+            >
               Contact
             </Link>
           </div>

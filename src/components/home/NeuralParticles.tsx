@@ -71,8 +71,8 @@ export const NeuralParticles: React.FC = () => {
     window.addEventListener('resize', resize, { passive: true });
     window.addEventListener('scroll', updateRect, { passive: true });
 
-    // Spawn particles (40 mobile / 75 desktop — visually unchanged)
-    const particleCount = width < 768 ? 40 : 75;
+    // Spawn particles (16 mobile / 60 desktop — optimized for mobile 60fps & low TBT)
+    const particleCount = width < 768 ? 16 : 60;
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
@@ -149,13 +149,16 @@ export const NeuralParticles: React.FC = () => {
           }
         }
 
+        let connCount = 0;
         for (let j = i + 1; j < particles.length; j++) {
+          if (width < 768 && connCount >= 2) break;
           const p2 = particles[j];
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
           const distSq = dx * dx + dy * dy;
 
           if (distSq < maxDistSq) {
+            connCount++;
             const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / 190) * 0.48;
             ctx.beginPath();
@@ -280,15 +283,25 @@ export const NeuralParticles: React.FC = () => {
       start();
     };
 
+    let startTimer: ReturnType<typeof setTimeout> | null = null;
+    const scheduleStart = () => {
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        window.requestIdleCallback(() => start(), { timeout: 800 });
+      } else {
+        startTimer = setTimeout(start, 250);
+      }
+    };
+
     // Draw initial crisp frame immediately so hero is populated behind curtain
     drawFrame();
     if (isCurtainBlocking) {
       window.addEventListener('academic-intro-curtain-opening', onCurtainOpening, { once: true });
     } else {
-      start();
+      scheduleStart();
     }
 
     return () => {
+      if (startTimer) clearTimeout(startTimer);
       stop();
       window.removeEventListener('academic-intro-curtain-opening', onCurtainOpening);
       window.removeEventListener('scroll', updateRect);

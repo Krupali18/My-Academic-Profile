@@ -74,10 +74,24 @@ html {
 }
 
 /* Security / Asset Protection: Deter casual image drag and callout without interfering with interactions or text selection */
-img {
+img,
+picture,
+canvas {
   -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
   -webkit-touch-callout: none;
   user-select: none;
+}
+
+/* Image Protection: Transparent overlay intercepts right-click on images */
+.img-protect-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
 }
 
 body {

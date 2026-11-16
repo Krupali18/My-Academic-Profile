@@ -50,7 +50,7 @@ export const WaveformCanvas: React.FC = () => {
       xPoints = [];
       envelopes = [];
       baseFreqs = [];
-      step = width > 1200 ? 5 : 7;
+      step = width > 1200 ? 5 : width < 768 ? 12 : 7;
       for (let x = 0; x <= width; x += step) {
         xPoints.push(x);
         const xProgress = x / width;
@@ -113,7 +113,7 @@ export const WaveformCanvas: React.FC = () => {
       mouseY += (targetMouseY - mouseY) * 0.08;
       hoverForce += ((isHovering ? 1 : 0) - hoverForce) * 0.05;
 
-      const numLines = width > 1400 ? 32 : width > 1100 ? 28 : width > 900 ? 24 : 16;
+      const numLines = width > 1400 ? 32 : width > 1100 ? 28 : width > 900 ? 24 : width < 768 ? 8 : 16;
       const centerY = height / 2;
 
       const timeShift = time * 1.5;
@@ -204,15 +204,25 @@ export const WaveformCanvas: React.FC = () => {
       start();
     };
 
+    let startTimer: ReturnType<typeof setTimeout> | null = null;
+    const scheduleStart = () => {
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        window.requestIdleCallback(() => start(), { timeout: 800 });
+      } else {
+        startTimer = setTimeout(start, 250);
+      }
+    };
+
     document.addEventListener('visibilitychange', onVisibilityChange);
     drawFrame();
     if (isCurtainBlocking) {
       window.addEventListener('academic-intro-curtain-opening', onCurtainOpening, { once: true });
     } else {
-      start();
+      scheduleStart();
     }
 
     return () => {
+      if (startTimer) clearTimeout(startTimer);
       stop();
       window.removeEventListener('academic-intro-curtain-opening', onCurtainOpening);
       window.removeEventListener('resize', resizeCanvas);

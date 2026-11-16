@@ -47,15 +47,15 @@ export const GalleryShowcaseSection: React.FC = () => {
     return () => clearInterval(timer);
   }, [isPlaying]);
 
-  // Lock body scroll when lightbox is active
+  // Lock body scroll when lightbox is active (class-based to avoid conflicts)
   useEffect(() => {
     if (lightboxOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
     } else {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     };
   }, [lightboxOpen]);
 
@@ -129,6 +129,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                   loading={idx === 0 ? 'eager' : 'lazy'}
                   decoding="async"
                   draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
                 />
                 <div className="showcase-zoom-hint" aria-hidden="true" title="Click to expand">
                   <svg
@@ -185,7 +186,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                 aria-label={`Show Photo ${idx + 1}`}
                 onClick={() => setCurrentIndex(idx)}
               >
-                <img src={photo.src} alt={`Photo ${idx + 1}`} loading="lazy" draggable="false" style={{ objectPosition: photo.objectPosition }} />
+                <img src={photo.src} alt={`Photo ${idx + 1}`} loading="lazy" draggable="false" onContextMenu={(e) => e.preventDefault()} style={{ objectPosition: photo.objectPosition }} />
               </button>
             ))}
           </div>
@@ -233,6 +234,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                 className="lightbox-main-img"
                 id="lightbox-img"
                 draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
             <button
@@ -256,7 +258,7 @@ export const GalleryShowcaseSection: React.FC = () => {
                   onClick={() => setLightboxIndex(i)}
                   aria-label={`Jump to slide ${i + 1}`}
                 >
-                  <img src={photo.src} alt={`Thumb ${i + 1}`} draggable="false" />
+                  <img src={photo.src} alt={`Thumb ${i + 1}`} draggable="false" onContextMenu={(e) => e.preventDefault()} />
                 </button>
               ))}
             </div>
