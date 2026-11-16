@@ -188,30 +188,6 @@
         letter-spacing: 0.05em;
       }
     </style>
-
-    <!-- Google Analytics 4 — deferred to idle time to protect main thread during initial load -->
-    <script>
-      (function() {
-        var gaId = 'G-XXXXXXXXXX'; // Replace with your real GA4 Measurement ID
-        if (!gaId || gaId === 'G-XXXXXXXXXX') return; // Skip if not configured
-        function loadGA() {
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-          document.head.appendChild(s);
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
-          gtag('js', new Date());
-          gtag('config', gaId);
-        }
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(loadGA, { timeout: 3000 });
-        } else {
-          window.addEventListener('load', loadGA, { once: true });
-        }
-      })();
-    </script>
   </head>
   <body>
     <!-- BUG-02/04 FIX: Removed raw HTML skeleton — it rendered without CSS causing FOUC.
