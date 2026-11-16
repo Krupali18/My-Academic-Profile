@@ -66,6 +66,8 @@ export default defineConfig({
   build: {
     target: 'esnext',
     sourcemap: false,
+    minify: 'esbuild',
+    cssCodeSplit: true,
     // H10 FIX: Lowered from 800 to 500 — this forces us to notice if chunks get too big
     // rather than silently suppressing the warning.
     chunkSizeWarningLimit: 500,
@@ -93,6 +95,7 @@ export default defineConfig({
             }
           }
         },
+        assetFileNames: 'assets/[name]-[hash][extname]',
       },
     },
   },

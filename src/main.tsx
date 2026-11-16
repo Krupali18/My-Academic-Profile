@@ -18,12 +18,30 @@ const scheduleWebVitals = () => {
     });
 };
 
+// Register Service Worker for offline resilience and instant asset serving
+const registerServiceWorker = () => {
+  if (typeof window !== 'undefined' && 'serviceWorker' in navigator && import.meta.env.PROD) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      // Service worker registration non-critical
+    });
+  }
+};
+
 if (typeof window !== 'undefined') {
   if ('requestIdleCallback' in window) {
     (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number })
-      .requestIdleCallback(scheduleWebVitals, { timeout: 3000 });
+      .requestIdleCallback(
+        () => {
+          scheduleWebVitals();
+          registerServiceWorker();
+        },
+        { timeout: 3000 }
+      );
   } else {
-    setTimeout(scheduleWebVitals, 1500);
+    setTimeout(() => {
+      scheduleWebVitals();
+      registerServiceWorker();
+    }, 1500);
   }
 }
 

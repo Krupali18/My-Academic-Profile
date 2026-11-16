@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { NeuralParticles } from './NeuralParticles';
 import { WaveformCanvas } from './WaveformCanvas';
+import { prefetchRoute } from '@/App';
 
 export const HeroBanner: React.FC = () => {
   return (
@@ -101,7 +102,13 @@ export const HeroBanner: React.FC = () => {
         </div>
       </div>
 
-      <Link to="/news-outreach" className="hero-news-btn" aria-label="News &amp; Outreach">
+      <Link
+        to="/news-outreach"
+        className="hero-news-btn"
+        aria-label="News &amp; Outreach"
+        onMouseEnter={() => prefetchRoute('newsOutreach')}
+        onTouchStart={() => prefetchRoute('newsOutreach')}
+      >
         <span>News &amp; Outreach</span>
         <svg
           className="news-btn-icon"
