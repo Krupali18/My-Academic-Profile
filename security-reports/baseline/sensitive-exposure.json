@@ -1,0 +1,50 @@
+[
+  {
+    "path": "/.git/config",
+    "status": "200"
+  },
+  {
+    "path": "/.env",
+    "status": "200"
+  },
+  {
+    "path": "/.env.production",
+    "status": "200"
+  },
+  {
+    "path": "/package.json",
+    "status": "200"
+  },
+  {
+    "path": "/package-lock.json",
+    "status": "200"
+  },
+  {
+    "path": "/vite.config.ts",
+    "status": "200"
+  },
+  {
+    "path": "/src/",
+    "status": "200"
+  },
+  {
+    "path": "/node_modules/",
+    "status": "200"
+  },
+  {
+    "path": "/.DS_Store",
+    "status": "200"
+  },
+  {
+    "path": "/assets-original-backup/",
+    "status": "200"
+  },
+  {
+    "path": "/perf-reports/",
+    "status": "200"
+  },
+  {
+    "path": "/security-reports/",
+    "status": "200"
+  }
+]

@@ -13,6 +13,7 @@ export const ResearchGallerySection: React.FC = () => {
               alt="Diagram showing image-to-response learning pipeline for accelerating meta-absorber design via transformers"
               loading="lazy"
               decoding="async"
+              draggable="false"
               width={600}
               height={400}
             />
@@ -38,6 +39,7 @@ export const ResearchGallerySection: React.FC = () => {
               alt="Schematic of extreme low-frequency ultrathin acoustic absorbing metasurface"
               loading="lazy"
               decoding="async"
+              draggable="false"
               width={600}
               height={400}
             />
@@ -63,6 +65,7 @@ export const ResearchGallerySection: React.FC = () => {
               alt="Deep learning approach architecture for designing acoustic absorbing metasurfaces with high degrees of freedom"
               loading="lazy"
               decoding="async"
+              draggable="false"
               width={600}
               height={400}
             />

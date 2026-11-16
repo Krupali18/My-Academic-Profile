@@ -28,7 +28,9 @@ export function useStickyHeader(
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    const handleScroll = (): void => {
+    let rafId = 0;
+    const updateScrollState = (): void => {
+      rafId = 0;
       const scrollY = window.scrollY;
       setIsScrolled((prev) => {
         if (!prev && scrollY > threshold) return true;
@@ -37,11 +39,17 @@ export function useStickyHeader(
       });
     };
 
+    const handleScroll = (): void => {
+      if (rafId !== 0) return;
+      rafId = window.requestAnimationFrame(updateScrollState);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    updateScrollState();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      if (rafId !== 0) window.cancelAnimationFrame(rafId);
     };
   }, [threshold, resetThreshold]);
 

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | Dr. Krupali Donda</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --nf-bg: #f7f9fd;
+      --nf-ink: #002E5D;
+      --nf-heading-color: #1f2937;
+      --nf-muted: #4b5563;
+      --nf-accent: #002E5D;
+      --nf-accent-hover: #001d3d;
+      --nf-blob: #e6eefc;
+      --nf-shadow: rgba(0, 46, 93, 0.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --nf-bg: #0f172a;
+        --nf-ink: #f1f5f9;
+        --nf-heading-color: #f8fafc;
+        --nf-muted: #94a3b8;
+        --nf-accent: #38bdf8;
+        --nf-accent-hover: #7dd3fc;
+        --nf-blob: #1e293b;
+        --nf-shadow: rgba(0, 0, 0, 0.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+      background: var(--nf-bg);
+      color: var(--nf-ink);
+      font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    .art { width: min(230px, 62vw); height: auto; margin-bottom: 8px; }
+    h1 { margin: 0; display: flex; flex-direction: column; align-items: center; }
+    .code {
+      font-size: clamp(88px, 18vw, 160px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--nf-ink);
+    }
+    .heading {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      margin-top: 4px;
+      color: var(--nf-heading-color);
+    }
+    p {
+      max-width: 440px;
+      margin: 16px auto 28px;
+      line-height: 1.6;
+      font-size: 16px;
+      color: var(--nf-muted);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      background: var(--nf-accent);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 46, 93, 0.15);
+    }
+    .btn:hover {
+      background: var(--nf-accent-hover);
+      transform: translateY(-1px);
+    }
+    .link {
+      display: block;
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--nf-accent);
+      text-underline-offset: 3px;
+      text-decoration: underline;
+    }
+    .btn:focus-visible, .link:focus-visible {
+      outline: 3px solid var(--nf-accent);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .doc {
+        animation: float 3.5s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <svg class="art" viewBox="0 0 230 162" aria-hidden="true" focusable="false">
+      <g fill="var(--nf-blob)">
+        <ellipse cx="115" cy="104" rx="72" ry="38"/>
+        <circle cx="98" cy="68" r="34"/>
+        <circle cx="142" cy="76" r="30"/>
+      </g>
+      <ellipse cx="111" cy="152" rx="40" ry="5" fill="var(--nf-shadow)"/>
+      <g class="doc" fill="none" stroke="var(--nf-ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path fill="#fff" d="M82 36H126L148 58V134a8 8 0 0 1-8 8H82a8 8 0 0 1-8-8V44a8 8 0 0 1 8-8Z"/>
+        <path d="M126 36V58H148"/>
+        <path d="M99 116Q111 104 123 116"/>
+        <circle cx="100" cy="90" r="2.5" fill="var(--nf-ink)" stroke="none"/>
+        <circle cx="122" cy="90" r="2.5" fill="var(--nf-ink)" stroke="none"/>
+        <path d="M54 62l9 6M52 84h10M168 62l-9 6M170 84h-10"/>
+      </g>
+    </svg>
+    <h1>
+      <span class="code">404</span>
+      <span class="heading">Page Not Found</span>
+    </h1>
+    <p>The page you’re looking for doesn’t exist or may have been moved.<br>Let’s get you back on track.</p>
+    <a class="btn" href="/">Go to Homepage <span aria-hidden="true">&rarr;</span></a>
+    <a class="link" href="/research">Or explore my research &rarr;</a>
+  </main>
+</body>
+</html>

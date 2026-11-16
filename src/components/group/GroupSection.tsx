@@ -194,6 +194,7 @@ export const GroupSection: React.FC = () => {
                 loading="eager"
                 fetchPriority="high"
                 decoding="async"
+                draggable="false"
                 width={280}
                 height={280}
               />
@@ -229,6 +230,7 @@ export const GroupSection: React.FC = () => {
                       alt={member.name}
                       loading="lazy"
                       decoding="async"
+                      draggable="false"
                       style={member.imgStyle}
                     />
                   </div>
@@ -275,6 +277,7 @@ export const GroupSection: React.FC = () => {
                       alt={member.name}
                       loading="lazy"
                       decoding="async"
+                      draggable="false"
                       style={member.imgStyle}
                     />
                   </div>
@@ -321,6 +324,7 @@ export const GroupSection: React.FC = () => {
                       alt={member.name}
                       loading="lazy"
                       decoding="async"
+                      draggable="false"
                     />
                   </div>
                   <h3 className="gs-member-name">

@@ -1,0 +1,102 @@
+[
+  {
+    "crawler": "Googlebot",
+    "endpoint": "/",
+    "status": "200"
+  },
+  {
+    "crawler": "Googlebot",
+    "endpoint": "/robots.txt",
+    "status": "200"
+  },
+  {
+    "crawler": "Googlebot",
+    "endpoint": "/sitemap.xml",
+    "status": "200"
+  },
+  {
+    "crawler": "Googlebot",
+    "endpoint": "/assets/genratedd-2-600w.webp",
+    "status": "200"
+  },
+  {
+    "crawler": "Bingbot",
+    "endpoint": "/",
+    "status": "200"
+  },
+  {
+    "crawler": "Bingbot",
+    "endpoint": "/robots.txt",
+    "status": "200"
+  },
+  {
+    "crawler": "Bingbot",
+    "endpoint": "/sitemap.xml",
+    "status": "200"
+  },
+  {
+    "crawler": "Bingbot",
+    "endpoint": "/assets/genratedd-2-600w.webp",
+    "status": "200"
+  },
+  {
+    "crawler": "GPTBot",
+    "endpoint": "/",
+    "status": "200"
+  },
+  {
+    "crawler": "GPTBot",
+    "endpoint": "/robots.txt",
+    "status": "200"
+  },
+  {
+    "crawler": "GPTBot",
+    "endpoint": "/sitemap.xml",
+    "status": "200"
+  },
+  {
+    "crawler": "GPTBot",
+    "endpoint": "/assets/genratedd-2-600w.webp",
+    "status": "200"
+  },
+  {
+    "crawler": "ClaudeBot",
+    "endpoint": "/",
+    "status": "200"
+  },
+  {
+    "crawler": "ClaudeBot",
+    "endpoint": "/robots.txt",
+    "status": "200"
+  },
+  {
+    "crawler": "ClaudeBot",
+    "endpoint": "/sitemap.xml",
+    "status": "200"
+  },
+  {
+    "crawler": "ClaudeBot",
+    "endpoint": "/assets/genratedd-2-600w.webp",
+    "status": "200"
+  },
+  {
+    "crawler": "FacebookExternalHit",
+    "endpoint": "/",
+    "status": "200"
+  },
+  {
+    "crawler": "FacebookExternalHit",
+    "endpoint": "/robots.txt",
+    "status": "200"
+  },
+  {
+    "crawler": "FacebookExternalHit",
+    "endpoint": "/sitemap.xml",
+    "status": "200"
+  },
+  {
+    "crawler": "FacebookExternalHit",
+    "endpoint": "/assets/genratedd-2-600w.webp",
+    "status": "200"
+  }
+]

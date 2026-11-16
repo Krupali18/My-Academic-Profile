@@ -59,6 +59,8 @@ export const ContactSection: React.FC = () => {
               <h4>Email</h4>
               <p>
                 <a href="mailto:krupali.donda@adaniuni.ac.in">krupali.donda@adaniuni.ac.in</a>
+                <br />
+                <a href="mailto:krupalip18@gmail.com">krupalip18@gmail.com</a>
               </p>
             </div>
           </div>

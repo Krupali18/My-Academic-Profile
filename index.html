@@ -8,12 +8,13 @@
     <meta
       name="description"
       content="Dr. Krupali Donda is an Assistant Professor at Adani University, Ahmedabad. Expert in Metasurfaces, Nanophotonics, Acoustic Metamaterials, and Deep Learning for inverse material design."
+      data-rh="true"
     />
-    <meta name="robots" content="index, follow" />
-    <meta name="author" content="Dr. Krupali Donda" />
+    <meta name="robots" content="index, follow" data-rh="true" />
+    <meta name="author" content="Dr. Krupali Donda" data-rh="true" />
     <meta name="theme-color" content="#002E5D" />
 
-    <link rel="canonical" href="https://krupalidonda.com/" />
+    <link rel="canonical" href="https://krupalidonda.com/" data-rh="true" />
     <link rel="manifest" href="/manifest.json" />
 
     <!-- Favicon: ico for legacy browsers, 96x96 PNG for Google Search, sized PNGs for tabs -->
@@ -29,38 +30,147 @@
     <link rel="preconnect" href="https://formspree.io" crossorigin />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
 
+    <!-- Preload LCP hero portrait image with responsive AVIF srcset and high fetchpriority -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset="/assets/genratedd-2-400w.avif 400w, /assets/genratedd-2-600w.avif 600w"
+      imagesizes="(max-width: 320px) 135px, (max-width: 768px) 180px, 280px"
+      fetchpriority="high"
+    />
+
     <!-- Open Graph Defaults (homepage) -->
-    <meta property="og:type" content="profile" />
-    <meta property="og:site_name" content="Dr. Krupali Donda" />
-    <meta property="og:title" content="Dr. Krupali Donda - Metamaterials and AI Research" />
+    <meta property="og:type" content="profile" data-rh="true" />
+    <meta property="og:site_name" content="Dr. Krupali Donda" data-rh="true" />
+    <meta property="og:title" content="Dr. Krupali Donda - Metamaterials and AI Research" data-rh="true" />
     <meta
       property="og:description"
       content="Assistant Professor at Adani University. Researching Metamaterials, Nanophotonics, Acoustic Metamaterials, and AI Deep Learning."
+      data-rh="true"
     />
-    <meta property="og:image" content="https://krupalidonda.com/assets/genratedd-2.webp" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Dr. Krupali Donda - Assistant Professor" />
-    <meta property="og:url" content="https://krupalidonda.com/" />
+    <meta property="og:image" content="https://krupalidonda.com/assets/genratedd-2.webp" data-rh="true" />
+    <meta property="og:image:width" content="1200" data-rh="true" />
+    <meta property="og:image:height" content="630" data-rh="true" />
+    <meta property="og:image:alt" content="Dr. Krupali Donda - Assistant Professor" data-rh="true" />
+    <meta property="og:url" content="https://krupalidonda.com/" data-rh="true" />
 
     <!-- Twitter Card Defaults (homepage) -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Dr. Krupali Donda - Metamaterials and AI Research" />
+    <meta name="twitter:card" content="summary_large_image" data-rh="true" />
+    <meta name="twitter:title" content="Dr. Krupali Donda - Metamaterials and AI Research" data-rh="true" />
     <meta
       name="twitter:description"
       content="Assistant Professor at Adani University. Researching Metamaterials, Nanophotonics, Acoustic Metamaterials, and AI Deep Learning."
+      data-rh="true"
     />
-    <meta name="twitter:image" content="https://krupalidonda.com/assets/genratedd-2.webp" />
-    <meta name="twitter:image:alt" content="Dr. Krupali Donda - Assistant Professor" />
+    <meta name="twitter:image" content="https://krupalidonda.com/assets/genratedd-2.webp" data-rh="true" />
+    <meta name="twitter:image:alt" content="Dr. Krupali Donda - Assistant Professor" data-rh="true" />
 
     <!-- WebSite JSON-LD: Google site name signal (homepage only) -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" data-rh="true">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Dr. Krupali Donda",
       "alternateName": "KD Academic",
       "url": "https://krupalidonda.com/"
+    }
+    </script>
+
+    <!-- LLM/GEO: Full Person + ProfilePage graph for AI crawlers that don't run JavaScript -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfilePage",
+          "@id": "https://krupalidonda.com/#profilepage",
+          "url": "https://krupalidonda.com/",
+          "name": "Dr. Krupali Donda – Assistant Professor, Metamaterials & AI Researcher in Ahmedabad",
+          "isPartOf": { "@id": "https://krupalidonda.com/#website" },
+          "about": { "@id": "https://krupalidonda.com/#person" },
+          "mainEntity": { "@id": "https://krupalidonda.com/#person" },
+          "dateModified": "2026-11-16"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://krupalidonda.com/#person",
+          "name": "Krupali Donda",
+          "honorificPrefix": "Dr.",
+          "alternateName": ["Dr. Krupali Donda", "KD Academic"],
+          "url": "https://krupalidonda.com/",
+          "image": "https://krupalidonda.com/assets/genratedd-2.webp",
+          "jobTitle": "Assistant Professor",
+          "email": ["mailto:krupali.donda@adaniuni.ac.in", "mailto:krupalip18@gmail.com"],
+          "description": "Dr. Krupali Donda is an Assistant Professor in the Department of Information and Communication Technology at Adani University, Ahmedabad, specialising in Metamaterials, Metasurfaces, Nanophotonics, Acoustic Metamaterials, and Deep Learning for inverse material design. She received her Ph.D. from Institut Jean Lamour, CNRS, France.",
+          "worksFor": {
+            "@type": "EducationalOrganization",
+            "name": "Adani University",
+            "url": "https://www.adaniuniversity.edu.in/",
+            "department": "Department of Information and Communication Technology"
+          },
+          "affiliation": {
+            "@type": "EducationalOrganization",
+            "name": "Adani University",
+            "url": "https://www.adaniuniversity.edu.in/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ahmedabad",
+              "addressRegion": "Gujarat",
+              "postalCode": "382421",
+              "addressCountry": "IN"
+            }
+          },
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "Institut Jean Lamour, CNRS",
+              "address": { "@type": "PostalAddress", "addressLocality": "Nancy", "addressCountry": "FR" }
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "IIT Gandhinagar"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "IIT Delhi"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ahmedabad",
+            "addressRegion": "Gujarat",
+            "postalCode": "382421",
+            "addressCountry": "IN"
+          },
+          "knowsAbout": [
+            "Metamaterials",
+            "Metasurfaces",
+            "Deep Learning",
+            "Wave Propagation",
+            "Nanophotonics",
+            "Acoustic Absorbers",
+            "Inverse Design",
+            "Machine Learning for Materials",
+            "Scientific Machine Learning",
+            "Artificial Intelligence"
+          ],
+          "hasCredential": [
+            { "@type": "EducationalOccupationalCredential", "credentialCategory": "Ph.D.", "recognizedBy": { "@type": "Organization", "name": "Institut Jean Lamour, CNRS, France" } }
+          ],
+          "award": [
+            "Visiting Scientist Fellowship, Indian National Science Academy (INSA) (2025)",
+            "Women in Acoustics Emerging Investigator Award, Acoustical Society of America (ASA)",
+            "ANRF International Travel Support Grant (2026)"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/krupalidonda/",
+            "https://scholar.google.com/citations?user=JRLRYokAAAAJ",
+            "https://www.researchgate.net/profile/Krupali-Donda-2",
+            "https://www.youtube.com/@humansineducation4511"
+          ]
+        }
+      ]
     }
     </script>
 
@@ -79,21 +189,27 @@
       }
     </style>
 
-    <!-- Google Analytics 4 — loads async, non-blocking -->
+    <!-- Google Analytics 4 — deferred to idle time to protect main thread during initial load -->
     <script>
-      // Read GA ID from meta tag or fall back gracefully if not configured
       (function() {
         var gaId = 'G-XXXXXXXXXX'; // Replace with your real GA4 Measurement ID
         if (!gaId || gaId === 'G-XXXXXXXXXX') return; // Skip if not configured
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', gaId);
+        function loadGA() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', gaId);
+        }
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadGA, { timeout: 3000 });
+        } else {
+          window.addEventListener('load', loadGA, { once: true });
+        }
       })();
     </script>
   </head>
@@ -105,5 +221,41 @@
       <div id="site-loading">Loading&hellip;</div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- LLM/GEO: noscript mirror for AI crawlers that do not execute JavaScript.
+         All text below matches what visitors see on the live site. -->
+    <noscript>
+      <h1>Dr. Krupali Donda – Assistant Professor | Researcher | STEM Mentor</h1>
+      <p>Dr. Krupali Donda is an Assistant Professor in the Department of Information and Communication Technology at Adani University, where she has been serving since February 2025. In 2025, she also served as a Visiting Scientist at the Indian Institute of Technology Delhi (IIT Delhi).</p>
+      <p>She received her Ph.D. in acoustic metasurfaces from the Institute Jean Lamour, CNRS, France, in 2022. Her doctoral research, funded by the U.S. Air Force Office of Scientific Research (AFOSR), USA focused on designing and experimentally validating ultrathin acoustic metasurfaces for efficient low-frequency sound absorption. Her work integrated computational modeling, deep learning, and experimental investigations to address challenges in acoustic wave manipulation and functional material design.</p>
+      <p>Prior to her doctoral studies in France, Dr. Donda worked as a Research Fellow at IIT Gandhinagar, where she explored optical metasurface. Her research journey began with a Master's internship at ITER-India, Institute for Plasma Research, where she gained experience in experimental and applied scientific research.</p>
+      <p>Dr. Donda's research lies at the intersection of scientific machine learning, artificial intelligence, metamaterials, metasurfaces, and wave propagation. Her primary research interests include deep learning–based inverse design of acoustic and phononic metamaterials, the development of ultrathin and broadband acoustic absorbers, and the application of AI-driven approaches to wave manipulation and functional material optimization.</p>
+      <p>She has delivered invited talks at scientific forums like the Acoustical Society of America (ASA), Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat. Her recognitions include the Indian National Science Academy (INSA) Visiting Scientist Fellowship in 2025 and the Women in Acoustics Emerging Investigator Award by Acoustic Society of America.</p>
+      <h2>Area of Research</h2>
+      <p>Wave Propagation, Metamaterials, Intelligent Metasurface Design, Machine Learning</p>
+      <h2>Affiliations</h2>
+      <ul>
+        <li>AU – Adani University, Ahmedabad</li>
+        <li>IIT Delhi</li>
+        <li>CNRS, France (Ph.D.)</li>
+        <li>IIT Gandhinagar</li>
+      </ul>
+      <h2>Awards and Honours</h2>
+      <ul>
+        <li>Visiting Scientist Fellowship, Indian National Science Academy (INSA), 2025</li>
+        <li>Women in Acoustics Emerging Investigator Award, Acoustical Society of America (ASA)</li>
+        <li>ANRF International Travel Support Grant, 2026</li>
+      </ul>
+      <h2>Contact</h2>
+      <p>Department of ICT, Adani University, Shantigram, Near Vaishnodevi Circle, Ahmedabad – 382421, Gujarat, India</p>
+      <p>Email: <a href="mailto:krupali.donda@adaniuni.ac.in">krupali.donda@adaniuni.ac.in</a>, <a href="mailto:krupalip18@gmail.com">krupalip18@gmail.com</a></p>
+      <h2>Profiles</h2>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/krupalidonda/">LinkedIn</a></li>
+        <li><a href="https://scholar.google.com/citations?user=JRLRYokAAAAJ">Google Scholar</a></li>
+        <li><a href="https://www.researchgate.net/profile/Krupali-Donda-2">ResearchGate</a></li>
+        <li><a href="https://www.youtube.com/@humansineducation4511">YouTube</a></li>
+      </ul>
+    </noscript>
   </body>
 </html>

@@ -276,13 +276,14 @@ export const StackSpreadSection: React.FC = () => {
     window.addEventListener('pointermove', handlePointerMove, { passive: true });
     document.addEventListener('pointerleave', handlePointerLeave);
 
-    let animId: number;
+    let animId: number = 0;
     let isRunning = true;
+    let isInView = true;
 
-    const tick = () => {
+    const tick = (scheduleNext = true) => {
       if (!wrapperRef.current || !isRunning) return;
-      // C7 FIX: Do NOT run animation loop when tab is hidden (saves CPU/battery)
-      if (document.hidden) return;
+      // Do NOT run continuous loop when tab is hidden or section is scrolled offscreen
+      if (document.hidden || (!isInView && scheduleNext)) return;
       const isMobile = window.innerWidth <= 768;
 
       const rect = wrapperRef.current.getBoundingClientRect();
@@ -380,23 +381,58 @@ export const StackSpreadSection: React.FC = () => {
         el.style.transform = `translate(calc(-50% + ${dx}vw), calc(-50% + ${dy}vh)) rotate(${currentRotate}deg) scale(${currentScale})`;
       });
 
-      animId = requestAnimationFrame(tick);
+      if (scheduleNext && isInView && !document.hidden && isRunning) {
+        animId = requestAnimationFrame(() => tick(true));
+      }
     };
+
+    const startLoop = () => {
+      if (isRunning && isInView && !document.hidden) {
+        cancelAnimationFrame(animId);
+        animId = requestAnimationFrame(() => tick(true));
+      }
+    };
+
+    // Draw initial frame synchronously so initial card stack position is ready before intersection
+    tick(false);
+
+    const observer =
+      typeof IntersectionObserver !== 'undefined' && wrapperRef.current
+        ? new IntersectionObserver(
+            (entries) => {
+              const entry = entries[0];
+              if (!entry) return;
+              isInView = entry.isIntersecting;
+              if (isInView) {
+                startLoop();
+              } else {
+                cancelAnimationFrame(animId);
+              }
+            },
+            { rootMargin: '200px 0px' }
+          )
+        : null;
+
+    if (observer && wrapperRef.current) {
+      observer.observe(wrapperRef.current);
+    }
 
     // C7 FIX: Resume RAF loop when tab becomes visible again
     const onVisibilityChange = () => {
-      if (!document.hidden && isRunning) {
-        cancelAnimationFrame(animId);
-        animId = requestAnimationFrame(tick);
+      if (!document.hidden && isRunning && isInView) {
+        startLoop();
       }
     };
     document.addEventListener('visibilitychange', onVisibilityChange);
 
-    animId = requestAnimationFrame(tick);
+    if (!observer) {
+      startLoop();
+    }
 
     return () => {
       isRunning = false;
       cancelAnimationFrame(animId);
+      observer?.disconnect();
       document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('pointermove', handlePointerMove);
       document.removeEventListener('pointerleave', handlePointerLeave);
@@ -461,6 +497,7 @@ export const StackSpreadSection: React.FC = () => {
                     alt={card.title ? `${card.title} — personal archive photo` : `Personal archive photo ${index + 1}`}
                     loading="lazy"
                     decoding="async"
+                    draggable="false"
                   />
                   <div className="stack-card-shade" />
                   <div className="stack-card-zoom-top" aria-hidden="true">
@@ -524,6 +561,7 @@ export const StackSpreadSection: React.FC = () => {
                 id="stackLightboxImg"
                 src={CARDS_DATA[activeModalIndex].modalSrc || CARDS_DATA[activeModalIndex].src}
                 alt={CARDS_DATA[activeModalIndex].title || 'Photo preview'}
+                draggable="false"
               />
               <button
                 type="button"

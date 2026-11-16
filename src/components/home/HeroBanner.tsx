@@ -12,16 +12,25 @@ export const HeroBanner: React.FC = () => {
       <div className="hero-banner-content">
         <div className="hero-banner-image reveal active">
           <picture>
-            <source srcSet="/assets/genratedd-2.webp" type="image/webp" />
+            <source
+              srcSet="/assets/genratedd-2-400w.avif 400w, /assets/genratedd-2-600w.avif 600w"
+              sizes="(max-width: 320px) 135px, (max-width: 768px) 180px, 280px"
+              type="image/avif"
+            />
+            <source
+              srcSet="/assets/genratedd-2-400w.webp 400w, /assets/genratedd-2-600w.webp 600w"
+              sizes="(max-width: 320px) 135px, (max-width: 768px) 180px, 280px"
+              type="image/webp"
+            />
             <img
-              src="/assets/genratedd-2.webp"
+              src="/assets/genratedd-2-600w.webp"
               alt="Dr. Krupali Donda — Assistant Professor at Adani University"
               decoding="async"
               loading="eager"
               fetchPriority="high"
+              draggable="false"
               width={280}
               height={380}
-              sizes="(max-width: 768px) 200px, 280px"
             />
           </picture>
         </div>

@@ -1,34 +1,61 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/research.html", "destination": "/research", "permanent": true },
+    { "source": "/teaching.html", "destination": "/teaching", "permanent": true },
+    { "source": "/group.html", "destination": "/group", "permanent": true },
+    { "source": "/honors.html", "destination": "/honors", "permanent": true },
+    { "source": "/publications.html", "destination": "/publications", "permanent": true },
+    { "source": "/talks.html", "destination": "/talks", "permanent": true },
+    { "source": "/service.html", "destination": "/service", "permanent": true },
+    { "source": "/news-outreach.html", "destination": "/news-outreach", "permanent": true },
+    { "source": "/gallery.html", "destination": "/gallery", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/research", "destination": "/index.html" },
+    { "source": "/teaching", "destination": "/index.html" },
+    { "source": "/group", "destination": "/index.html" },
+    { "source": "/honors", "destination": "/index.html" },
+    { "source": "/publications", "destination": "/index.html" },
+    { "source": "/talks", "destination": "/index.html" },
+    { "source": "/service", "destination": "/index.html" },
+    { "source": "/news-outreach", "destination": "/index.html" },
+    { "source": "/gallery", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" }
   ],
   "headers": [
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml; charset=utf-8" }
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/:path*",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/fonts/(.*)",
+      "source": "/fonts/:path*",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     },
     {
-      "source": "/(.*)\\.html",
+      "source": "/:path*.html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
@@ -36,33 +63,32 @@
     {
       "source": "/",
       "headers": [
-        {
-          "key": "Link",
-          "value": "</assets/genratedd-2.webp>; rel=preload; as=image; type=image/webp"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         {
           "key": "Strict-Transport-Security",
-          "value": "max-age=63072000; includeSubDomains; preload"
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
         },
         {
           "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), interest-cohort=()"
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https://res.cloudinary.com https://krupalidonda.com https://images.unsplash.com https://avatars.githubusercontent.com https://www.google-analytics.com https://i.ytimg.com https://img.youtube.com; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com https://*.ingest.sentry.io; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-LQHL+POV7DXUOh2Gtic32IJZJWfv7LNy7g9xbgZX+c4=' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https://res.cloudinary.com https://krupalidonda.com https://images.unsplash.com https://avatars.githubusercontent.com https://www.google-analytics.com https://i.ytimg.com https://img.youtube.com; connect-src 'self' https://formspree.io https://www.google-analytics.com https://region1.google-analytics.com; media-src 'self'; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io; frame-ancestors 'none'; upgrade-insecure-requests"
         }
       ]
     }
   ]
 }
- 

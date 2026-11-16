@@ -20,7 +20,7 @@ export function YouTubeEmbed({ url, title, className }: YouTubeEmbedProps): Reac
 
   const thumbnailUrl = videoId
     ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-    : '/assets/genratedd-2.png';
+    : '/assets/genratedd-2-600w.webp';
 
   const embedUrl = videoId
     ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`
@@ -59,6 +59,7 @@ export function YouTubeEmbed({ url, title, className }: YouTubeEmbedProps): Reac
         alt={title}
         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 opacity-90 group-hover:opacity-100"
         loading="lazy"
+        draggable="false"
       />
       {/* Play Button Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">
