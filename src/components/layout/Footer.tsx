@@ -3,7 +3,20 @@ import React from 'react';
 export const Footer: React.FC = () => {
   return (
     <footer className="site-footer" role="contentinfo">
-      <p className="footer-text">Let's push the frontiers of science together.</p>
+      <div className="footer-content-left">
+        <p className="footer-text">Let's push the frontiers of science together.</p>
+        <p className="footer-credit">
+          Designed &amp; Developed by{' '}
+          <a
+            href="https://meetrabadiya.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-credit-link"
+          >
+            Meet Rabadiya
+          </a>
+        </p>
+      </div>
       <nav className="footer-icons" aria-label="Social media links">
         <a
           href="https://www.linkedin.com/in/krupalidonda/"

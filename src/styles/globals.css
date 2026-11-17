@@ -3593,6 +3593,27 @@ img {
   word-break: break-word;
 }
 
+.footer-credit {
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.footer-credit-link {
+  color: #72aef5;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-credit-link:hover,
+.footer-credit-link:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .footer-icons {
   display: flex;
   align-items: center;
