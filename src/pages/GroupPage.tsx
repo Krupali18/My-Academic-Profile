@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { seoConfig } from '@/seo.config';
 import { PageSeoHelmet } from '@/components/seo/PageSeoHelmet';
 import { Header } from '@/components/layout/Header';
@@ -13,6 +14,15 @@ export const GroupPage: React.FC = () => {
   return (
     <>
       <PageSeoHelmet seo={seo} />
+      <Helmet>
+        <link
+          rel="preload"
+          as="image"
+          type="image/webp"
+          href="/assets/faculty-mentor-cropped.webp"
+          fetchPriority="high"
+        />
+      </Helmet>
 
       <main className="main-content" id="main-content">
         <Header solidOnMount />

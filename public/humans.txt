@@ -1,0 +1,12 @@
+/* TEAM */
+Designer & Developer: Meet Rabadiya
+Website: https://meetrabadiya.dev
+Role: Architecture, UI/UX Design, Full-Stack Development
+Location: Gujarat, India
+
+/* SITE */
+Last update: 2026/11/17
+Standards: HTML5, CSS3, ESNext, W3C WCAG 2.1 AA
+Software & Frameworks: React, TypeScript, Vite, Tailwind CSS, GSAP
+Language: English
+Doctype: HTML5

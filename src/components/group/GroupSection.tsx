@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { preloadGroupImages } from '@/lib/preloadGroupImages';
 
 // Exact data from group.html
 
@@ -31,7 +32,7 @@ const btechStudents: BTechStudent[] = [
   },
   {
     name: 'Ashish Shrivastav',
-    img: '/assets/ashish.png',
+    img: '/assets/ashish.webp',
     imgStyle: { objectPosition: 'center 20%' },
     role: 'Pre-Final Year B.Tech Student\n(ICT Department)',
     desc: 'Temperature dependent inverse metasurface design, and financial question answering using VectorRAG and Knowledge Graphs (In collaboration with Prof. Erik Cambria, SenticNet Lab)',
@@ -127,7 +128,7 @@ const alumni: Alumnus[] = [
   },
   {
     name: 'Dev Sanghvi',
-    img: '/assets/dev-sanghvi.jfif',
+    img: '/assets/dev-sanghvi.webp',
     topic: 'Accelerating Meta-Absorber Design via Transformers',
     current: 'Currently: Founder @Dhi • MS in Computer Science, Rice University, USA',
     linkedin: 'https://www.linkedin.com/in/dev-sanghvi-616843128/',
@@ -175,6 +176,10 @@ const ExternalLinkIcon: React.FC = () => (
 );
 
 export const GroupSection: React.FC = () => {
+  useEffect(() => {
+    preloadGroupImages();
+  }, []);
+
   return (
     <div className="group-page-content">
 
@@ -222,15 +227,17 @@ export const GroupSection: React.FC = () => {
         <div className="gs-content-band" style={{ backgroundColor: '#f9f9f9' }}>
           <div className="gs-container">
             <div className="gs-members-grid">
-              {btechStudents.map((member) => (
+              {btechStudents.map((member, idx) => (
                 <article key={member.name} className="gs-member-card stagger-item">
                   <div className="gs-member-img">
                     <img
                       src={member.img}
                       alt={member.name}
-                      loading="lazy"
+                      loading={idx < 4 ? 'eager' : 'lazy'}
                       decoding="async"
                       draggable="false"
+                      width={300}
+                      height={300}
                       style={member.imgStyle}
                     />
                   </div>
@@ -278,6 +285,8 @@ export const GroupSection: React.FC = () => {
                       loading="lazy"
                       decoding="async"
                       draggable="false"
+                      width={300}
+                      height={300}
                       style={member.imgStyle}
                     />
                   </div>
@@ -325,6 +334,8 @@ export const GroupSection: React.FC = () => {
                       loading="lazy"
                       decoding="async"
                       draggable="false"
+                      width={300}
+                      height={300}
                     />
                   </div>
                   <h3 className="gs-member-name">
