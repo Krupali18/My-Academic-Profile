@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { NeuralParticles } from './NeuralParticles';
 import { WaveformCanvas } from './WaveformCanvas';
-import { prefetchRoute } from '@/App';
+import { prefetchRoute } from '@/lib/routePrefetch';
 
 export const HeroBanner: React.FC = () => {
   return (

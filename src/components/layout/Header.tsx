@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useStickyHeader } from '@/hooks/useStickyHeader';
 import { useSite } from '@/context/SiteContext';
-import { prefetchRoute, type routeLoaders } from '@/App';
+import { prefetchRoute, type RouteKey } from '@/lib/routePrefetch';
 
 export interface HeaderProps {
   solidOnMount?: boolean;
@@ -10,14 +10,14 @@ export interface HeaderProps {
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', end: true },
-  { to: '/about', label: 'About', routeKey: 'about' as keyof typeof routeLoaders },
-  { to: '/research', label: 'Research', routeKey: 'research' as keyof typeof routeLoaders },
-  { to: '/teaching', label: 'Teaching', routeKey: 'teaching' as keyof typeof routeLoaders },
-  { to: '/group', label: 'Group', routeKey: 'group' as keyof typeof routeLoaders },
-  { to: '/honors', label: 'Honours', routeKey: 'honors' as keyof typeof routeLoaders },
-  { to: '/publications', label: 'Publications', routeKey: 'publications' as keyof typeof routeLoaders },
-  { to: '/news-outreach', label: 'News & Outreach', routeKey: 'newsOutreach' as keyof typeof routeLoaders },
-  { to: '/gallery', label: 'Gallery', routeKey: 'gallery' as keyof typeof routeLoaders },
+  { to: '/about', label: 'About', routeKey: 'about' as RouteKey },
+  { to: '/research', label: 'Research', routeKey: 'research' as RouteKey },
+  { to: '/teaching', label: 'Teaching', routeKey: 'teaching' as RouteKey },
+  { to: '/group', label: 'Group', routeKey: 'group' as RouteKey },
+  { to: '/honors', label: 'Honours', routeKey: 'honors' as RouteKey },
+  { to: '/publications', label: 'Publications', routeKey: 'publications' as RouteKey },
+  { to: '/news-outreach', label: 'News & Outreach', routeKey: 'newsOutreach' as RouteKey },
+  { to: '/gallery', label: 'Gallery', routeKey: 'gallery' as RouteKey },
 ];
 
 export const Header: React.FC<HeaderProps> = ({ solidOnMount }) => {
