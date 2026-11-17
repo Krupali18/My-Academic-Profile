@@ -264,14 +264,14 @@ img {
 }
 
 .ad_navbar {
-  height: 60px;
+  height: 54px;
   font-family: var(--font-primary);
   display: flex;
   transition: height 0.14s ease-out, padding 0.14s ease-out;
 }
 
 .o_header_standard.ad-scrolled .ad_navbar {
-  height: 52px;
+  height: 48px;
 }
 
 .ad_navbar .container-fluid {
@@ -3575,7 +3575,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  padding: 24px clamp(24px, 8vw, 210px);
+  padding: 15px clamp(24px, 8vw, 210px);
   border-top: 1px solid rgba(255, 255, 255, 0.16);
   font-size: 12px;
   font-weight: 400;
@@ -3584,8 +3584,8 @@ img {
 
 .footer-text {
   margin: 0;
-  font-size: clamp(16px, 1.15vw, 29px);
-  line-height: 1.4;
+  font-size: clamp(18px, 1.3vw, 30px);
+  line-height: 1.3;
   font-style: italic;
   font-weight: 600;
   color: #fff;
@@ -3603,13 +3603,13 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: 5px;
 }
 
 .footer-credit {
   margin: 0;
   font-size: 12px;
-  line-height: 1.4;
+  line-height: 1.3;
   color: rgba(255, 255, 255, 0.65);
   letter-spacing: 0.01em;
   text-align: right;
@@ -3630,15 +3630,15 @@ img {
 }
 
 .footer-icon {
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   text-decoration: none;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(5, 16, 31, 0.25);
+  box-shadow: 0 4px 14px rgba(5, 16, 31, 0.25);
   position: relative;
   overflow: hidden;
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
@@ -3678,7 +3678,7 @@ img {
 .footer-icon.rg span,
 .footer-icon.linkedin span {
   font-weight: 800;
-  font-size: 15px;
+  font-size: 17.5px;
   letter-spacing: -0.3px;
   line-height: 1;
 }
@@ -3727,13 +3727,13 @@ img {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 22px 18px;
-    gap: 16px;
+    padding: 16px 18px;
+    gap: 12px;
   }
 
   .footer-right {
     align-items: center;
-    gap: 8px;
+    gap: 5px;
   }
 
   .footer-icons {
@@ -3742,13 +3742,13 @@ img {
   }
 
   .footer-icon {
-    width: 34px;
-    height: 34px;
+    width: 38px;
+    height: 38px;
   }
 
   .footer-icon.rg span,
   .footer-icon.linkedin span {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .footer-icon.rg sup {
