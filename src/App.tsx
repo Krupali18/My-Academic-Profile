@@ -6,6 +6,7 @@ import { ScrollToTop } from '@/components/layout/ScrollToTop';
 import { SiteProvider } from '@/context/SiteContext';
 import { GlobalScrollReveal } from '@/hooks/useGlobalScrollReveal';
 import { useImageProtection } from '@/hooks/useImageProtection';
+import { preloadGroupImages } from '@/lib/preloadGroupImages';
 
 // Eager: Critical above-the-fold page — loads immediately with zero delay
 import HomePage from '@/pages/HomePage';
@@ -53,6 +54,9 @@ export const prefetchAllRoutes = (): void => {
       // Background prefetch is non-critical
     }
   });
+
+  // Preload group images in idle background so Group page has zero image lag
+  preloadGroupImages();
 };
 
 /**
@@ -62,6 +66,9 @@ export const prefetchRoute = (key: keyof typeof routeLoaders): void => {
   if (routeLoaders[key]) {
     try {
       routeLoaders[key]();
+      if (key === 'group') {
+        preloadGroupImages();
+      }
     } catch {
       // Safe no-op
     }
