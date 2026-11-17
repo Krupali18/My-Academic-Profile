@@ -872,9 +872,9 @@ export const AcademicIntro: React.FC<AcademicIntroProps> = ({ onComplete }) => {
         </h1>
         <div id="intro-hairline" ref={hairlineRef} aria-hidden="true" />
         <p id="intro-roles" ref={rolesRef} aria-label="Scientist, Researcher and Mentor">
-          <span className="role-pill">Scientist</span>
-          <span className="intro-sep">&bull;</span>
           <span className="role-pill">Researcher</span>
+          <span className="intro-sep">&bull;</span>
+          <span className="role-pill">Faculty</span>
           <span className="intro-sep">&bull;</span>
           <span className="role-pill">Mentor</span>
         </p>
