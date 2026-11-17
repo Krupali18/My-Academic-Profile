@@ -20,8 +20,6 @@ const routes = [
   { loc: 'https://krupalidonda.com/teaching', changefreq: 'monthly', priority: '0.8' },
   { loc: 'https://krupalidonda.com/group', changefreq: 'monthly', priority: '0.8' },
   { loc: 'https://krupalidonda.com/honors', changefreq: 'monthly', priority: '0.7' },
-  { loc: 'https://krupalidonda.com/talks', changefreq: 'monthly', priority: '0.7' },
-  { loc: 'https://krupalidonda.com/service', changefreq: 'monthly', priority: '0.6' },
   { loc: 'https://krupalidonda.com/news-outreach', changefreq: 'weekly', priority: '0.8' },
   { loc: 'https://krupalidonda.com/gallery', changefreq: 'monthly', priority: '0.6' },
   { loc: 'https://krupalidonda.com/contact', changefreq: 'yearly', priority: '0.7' },

@@ -8,8 +8,6 @@
     { "source": "/group.html", "destination": "/group", "permanent": true },
     { "source": "/honors.html", "destination": "/honors", "permanent": true },
     { "source": "/publications.html", "destination": "/publications", "permanent": true },
-    { "source": "/talks.html", "destination": "/talks", "permanent": true },
-    { "source": "/service.html", "destination": "/service", "permanent": true },
     { "source": "/news-outreach.html", "destination": "/news-outreach", "permanent": true },
     { "source": "/gallery.html", "destination": "/gallery", "permanent": true },
     { "source": "/contact.html", "destination": "/contact", "permanent": true }
@@ -21,8 +19,6 @@
     { "source": "/group", "destination": "/index.html" },
     { "source": "/honors", "destination": "/index.html" },
     { "source": "/publications", "destination": "/index.html" },
-    { "source": "/talks", "destination": "/index.html" },
-    { "source": "/service", "destination": "/index.html" },
     { "source": "/news-outreach", "destination": "/index.html" },
     { "source": "/gallery", "destination": "/index.html" },
     { "source": "/contact", "destination": "/index.html" }

@@ -337,64 +337,6 @@ export const seoConfig: Record<string, PageSeoConfig> = {
       ],
     },
   },
-  talks: {
-    title: 'Invited Talks and Seminars - Dr. Krupali Donda',
-    description:
-      'Invited talks, keynote seminars, and academic lectures by Dr. Krupali Donda at IIT Delhi, SVNIT Surat, ASA Honolulu, META 2025, SPIE Photonics Europe, URSI, and more national and international forums.',
-    canonical: 'https://krupalidonda.com/talks',
-    ogTitle: 'Invited Talks and Seminars - Dr. Krupali Donda',
-    ogDescription: 'Keynote and invited presentations at national and international forums - Dr. Krupali Donda.',
-    ogImage: 'https://krupalidonda.com/assets/svnit-expert-talk.webp',
-    ogImageAlt: 'Invited Talks by Dr. Krupali Donda',
-    ogUrl: 'https://krupalidonda.com/talks',
-    twitterCard: 'summary_large_image',
-    twitterTitle: 'Invited Talks and Seminars - Dr. Krupali Donda',
-    twitterDescription: 'Invited talks and academic seminar presentations at international conferences.',
-    twitterImage: 'https://krupalidonda.com/assets/svnit-expert-talk.webp',
-    jsonLd: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Event',
-        name: 'META 2025 - Invited Talk by Dr. Krupali Donda',
-        description: 'Invited talk on metamaterials and AI at the META 2025 international conference.',
-        performer: { '@type': 'Person', name: 'Dr. Krupali Donda', url: 'https://krupalidonda.com' },
-        organizer: { '@type': 'Organization', name: 'META Conference Series' },
-        eventStatus: 'https://schema.org/EventScheduled',
-        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://krupalidonda.com/' },
-          { '@type': 'ListItem', position: 2, name: 'Talks', item: 'https://krupalidonda.com/talks' },
-        ],
-      },
-    ],
-  },
-  service: {
-    title: 'Volunteering and Service - Dr. Krupali Donda',
-    description:
-      'Academic community service, committee roles, conference organisation, peer review, and volunteering by Dr. Krupali Donda - Board of Studies, Research & Innovation Cell, IEEE Student Branch Advisor.',
-    canonical: 'https://krupalidonda.com/service',
-    ogTitle: 'Volunteering and Service - Dr. Krupali Donda',
-    ogDescription: 'Institutional contributions, peer review, conference organisation, and academic leadership - Dr. Krupali Donda.',
-    ogImage: 'https://krupalidonda.com/assets/genratedd-2.webp',
-    ogImageAlt: 'Academic Community Service - Dr. Krupali Donda',
-    ogUrl: 'https://krupalidonda.com/service',
-    twitterCard: 'summary_large_image',
-    twitterTitle: 'Volunteering and Service - Dr. Krupali Donda',
-    twitterDescription: 'Academic community service, committee roles, and volunteering.',
-    twitterImage: 'https://krupalidonda.com/assets/genratedd-2.webp',
-    jsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://krupalidonda.com/' },
-        { '@type': 'ListItem', position: 2, name: 'Service', item: 'https://krupalidonda.com/service' },
-      ],
-    },
-  },
   newsOutreach: {
     title: 'News and Outreach - Dr. Krupali Donda',
     description:

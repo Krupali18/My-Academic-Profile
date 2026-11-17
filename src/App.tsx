@@ -18,8 +18,6 @@ const TeachingPage = lazy(routeLoaders.teaching);
 const GroupPage = lazy(routeLoaders.group);
 const HonorsPage = lazy(routeLoaders.honors);
 const PublicationsPage = lazy(routeLoaders.publications);
-const TalksPage = lazy(routeLoaders.talks);
-const ServicePage = lazy(routeLoaders.service);
 const NewsOutreachPage = lazy(routeLoaders.newsOutreach);
 const GalleryPage = lazy(routeLoaders.gallery);
 const ContactPage = lazy(routeLoaders.contact);
@@ -67,8 +65,6 @@ export const App: React.FC = () => {
                 <Route path="/group" element={<GroupPage />} />
                 <Route path="/honors" element={<HonorsPage />} />
                 <Route path="/publications" element={<PublicationsPage />} />
-                <Route path="/talks" element={<TalksPage />} />
-                <Route path="/service" element={<ServicePage />} />
                 <Route path="/news-outreach" element={<NewsOutreachPage />} />
                 <Route path="/gallery" element={<GalleryPage />} />
                 <Route path="/contact" element={<ContactPage />} />
@@ -81,8 +77,6 @@ export const App: React.FC = () => {
                 <Route path="/group.html" element={<Navigate to="/group" replace />} />
                 <Route path="/honors.html" element={<Navigate to="/honors" replace />} />
                 <Route path="/publications.html" element={<Navigate to="/publications" replace />} />
-                <Route path="/talks.html" element={<Navigate to="/talks" replace />} />
-                <Route path="/service.html" element={<Navigate to="/service" replace />} />
                 <Route path="/news-outreach.html" element={<Navigate to="/news-outreach" replace />} />
                 <Route path="/gallery.html" element={<Navigate to="/gallery" replace />} />
                 <Route path="/contact.html" element={<Navigate to="/contact" replace />} />

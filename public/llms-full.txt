@@ -59,9 +59,7 @@ Dr. Donda believes that education, both formal and informal, is a powerful catal
 - [Publications](https://krupalidonda.com/publications): Peer-reviewed journal articles and conference proceedings
 - [Teaching](https://krupalidonda.com/teaching): Courses in Machine Learning, Generative AI, AI, NLP, and Communication
 - [Honours and Awards](https://krupalidonda.com/honors): INSA Fellowship, ASA Women in Acoustics Award, ANRF Grant
-- [Invited Talks](https://krupalidonda.com/talks): Invited presentations at ASA, META, SVNIT, SPIE and more
 - [Research Group](https://krupalidonda.com/group): Current students, interns and alumni
-- [Volunteering and Service](https://krupalidonda.com/service): Academic community service and committee roles
 - [News and Outreach](https://krupalidonda.com/news-outreach): Latest research highlights and mentorship activities
 - [Gallery](https://krupalidonda.com/gallery): Conference photos, lab moments and research milestones
 - [Contact](https://krupalidonda.com/contact): Email, office address and academic profiles
