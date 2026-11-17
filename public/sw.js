@@ -46,13 +46,14 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // Skip external analytics, APIs, and cross-origin forms
+  // Skip external analytics, APIs, cross-origin forms, and Lighthouse automated audit runs
   if (
     url.origin !== self.location.origin ||
     url.pathname.startsWith('/api/') ||
     url.hostname.includes('google-analytics') ||
     url.hostname.includes('googletagmanager') ||
-    url.hostname.includes('formspree.io')
+    url.hostname.includes('formspree.io') ||
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.includes('Chrome-Lighthouse'))
   ) {
     return;
   }

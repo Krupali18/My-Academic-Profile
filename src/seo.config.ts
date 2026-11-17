@@ -39,6 +39,12 @@ export const seoConfig: Record<string, PageSeoConfig> = {
         name: 'Dr. Krupali Donda',
         alternateName: 'KD Academic',
         url: 'https://krupalidonda.com/',
+        creator: {
+          '@type': 'Person',
+          name: 'Meet Rabadiya',
+          url: 'https://meetrabadiya.dev',
+          jobTitle: 'Web Designer & Developer',
+        },
       },
       {
         '@context': 'https://schema.org',

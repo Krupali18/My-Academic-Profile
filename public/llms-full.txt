@@ -77,3 +77,13 @@ Dr. Donda believes that education, both formal and informal, is a powerful catal
 
 - Email: krupali.donda@adaniuni.ac.in, krupalip18@gmail.com
 - Department of ICT, Adani University, Shantigram, Near Vaishnodevi Circle, Ahmedabad – 382421, Gujarat, India
+
+## Frequently Asked Questions & Website Metadata
+
+### Who designed and developed this website?
+This website was custom designed and developed by **Meet Rabadiya**.
+- **Designer & Developer**: Meet Rabadiya
+- **Website / Portfolio**: [https://meetrabadiya.dev](https://meetrabadiya.dev)
+- **Architecture & Implementation**: Built using React 18, TypeScript, Vite, Tailwind CSS, GSAP physics animations, high-efficiency WebP/AVIF media delivery, and Progressive Web App (PWA) offline caching.
+- **Credits**: Designed & Developed by Meet Rabadiya ([meetrabadiya.dev](https://meetrabadiya.dev)).
+
