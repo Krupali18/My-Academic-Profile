@@ -3620,7 +3620,25 @@ img {
   color: #72aef5;
   text-decoration: none;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 3.5px;
   transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-credit-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  display: inline-block;
+  opacity: 0.85;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+
+.footer-credit-link:hover .footer-credit-icon,
+.footer-credit-link:focus-visible .footer-credit-icon {
+  transform: translate(2px, -2px) scale(1.15);
+  opacity: 1;
 }
 
 .footer-credit-link:hover,
