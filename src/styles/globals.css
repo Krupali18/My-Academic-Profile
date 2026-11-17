@@ -3574,75 +3574,41 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 7px clamp(20px, 4.5vw, 100px);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  gap: 22px;
+  padding: 24px clamp(24px, 8vw, 210px);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   font-size: 12px;
   font-weight: 400;
   margin-top: auto;
-  min-height: 54px;
 }
 
 .footer-text {
   margin: 0;
-  font-size: clamp(13px, 0.95vw, 15px);
-  line-height: 1.3;
+  font-size: clamp(16px, 1.15vw, 29px);
+  line-height: 1.4;
   font-style: italic;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.94);
+  font-weight: 600;
+  color: #fff;
   overflow-wrap: break-word;
   word-break: break-word;
-  letter-spacing: -0.01em;
-}
-
-.footer-content-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 3px;
-}
-
-.footer-credit {
-  margin: 0;
-  font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 400;
-  letter-spacing: 0.015em;
-  text-align: right;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-.footer-credit-link {
-  color: #72aef5;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease, text-decoration 0.2s ease;
-}
-
-.footer-credit-link:hover,
-.footer-credit-link:focus-visible {
-  color: #ffffff;
-  text-decoration: underline;
 }
 
 .footer-icons {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 }
 
 .footer-icon {
-  width: 29px;
-  height: 29px;
+  width: 50px;
+  height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   text-decoration: none;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(5, 16, 31, 0.25);
+  box-shadow: 0 8px 18px rgba(5, 16, 31, 0.25);
   position: relative;
   overflow: hidden;
   transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
@@ -3666,11 +3632,6 @@ img {
   z-index: 1;
 }
 
-.footer-icon svg {
-  width: 14.5px;
-  height: 14.5px;
-}
-
 .footer-icon.linkedin {
   background: linear-gradient(135deg, #0077b5, #0a8bd5);
 }
@@ -3686,9 +3647,9 @@ img {
 
 .footer-icon.rg span,
 .footer-icon.linkedin span {
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: -0.3px;
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: -0.4px;
   line-height: 1;
 }
 
@@ -3697,38 +3658,38 @@ img {
 }
 
 .footer-icon.rg sup {
-  font-size: 0.6em;
+  font-size: 0.62em;
   line-height: 0;
   position: relative;
-  top: -0.32em;
+  top: -0.35em;
   margin-left: 0.02em;
 }
 
 .footer-icon:hover,
 .footer-icon:focus-visible {
-  transform: translateY(-2px) scale(1.08);
-  box-shadow: 0 8px 18px rgba(6, 20, 37, 0.35);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 30px rgba(6, 20, 37, 0.38);
   filter: saturate(1.14);
 }
 
 .footer-icon.linkedin:hover,
 .footer-icon.linkedin:focus-visible {
-  box-shadow: 0 0 0 3px rgba(0, 119, 181, 0.24), 0 8px 18px rgba(6, 20, 37, 0.35);
+  box-shadow: 0 0 0 4px rgba(0, 119, 181, 0.24), 0 16px 30px rgba(6, 20, 37, 0.38);
 }
 
 .footer-icon.scholar:hover,
 .footer-icon.scholar:focus-visible {
-  box-shadow: 0 0 0 3px rgba(164, 186, 219, 0.3), 0 8px 18px rgba(6, 20, 37, 0.3);
+  box-shadow: 0 0 0 4px rgba(164, 186, 219, 0.3), 0 16px 30px rgba(6, 20, 37, 0.34);
 }
 
 .footer-icon.rg:hover,
 .footer-icon.rg:focus-visible {
-  box-shadow: 0 0 0 3px rgba(197, 148, 95, 0.28), 0 8px 18px rgba(6, 20, 37, 0.35);
+  box-shadow: 0 0 0 4px rgba(197, 148, 95, 0.28), 0 16px 30px rgba(6, 20, 37, 0.38);
 }
 
 .footer-icon:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.7);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 @media (max-width: 900px) {
@@ -3736,37 +3697,26 @@ img {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 10px 16px;
-    gap: 6px;
-  }
-
-  .footer-content-right {
-    align-items: center;
-    gap: 3px;
-  }
-
-  .footer-credit {
-    text-align: center;
-    font-size: 10px;
+    padding: 22px 18px;
+    gap: 14px;
   }
 
   .footer-icons {
     justify-content: center;
-    gap: 8px;
   }
 
   .footer-icon {
-    width: 27px;
-    height: 27px;
+    width: 44px;
+    height: 44px;
   }
 
   .footer-icon.rg span,
   .footer-icon.linkedin span {
-    font-size: 11px;
+    font-size: 18px;
   }
 
   .footer-icon.rg sup {
-    top: -0.3em;
+    top: -0.32em;
   }
 }
 
@@ -5794,7 +5744,6 @@ img {
     height: 7px;
   }
 }
-
 /* ==========================================================================
    Photo Gallery & Workshops Stylesheet
    Dr. Krupali Donda Portfolio
@@ -6835,8 +6784,7 @@ img {
 .stack-spread-wrapper {
   position: relative;
   width: 100%;
-  height: 220vh;
-  /* Scroll travel distance */
+  height: 220vh; /* Scroll travel distance */
   background: radial-gradient(ellipse at 50% 35%, #FFFFFF 0%, #FAFBFD 60%, #F1F5F9 100%);
   background-color: var(--stack-bg);
 }
@@ -6952,8 +6900,8 @@ img {
   cursor: pointer;
   text-decoration: none;
   transition: border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stack-card-inner:hover {
@@ -7066,15 +7014,8 @@ img {
 }
 
 @keyframes stackBounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* -------------------------------------------------------------
